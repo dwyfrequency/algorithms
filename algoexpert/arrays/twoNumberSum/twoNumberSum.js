@@ -28,7 +28,8 @@ const hashMap = (array, targetSum) => {
 };
 
 const headAndTail = (array, targetSum) => {
-  array.sort((a, b) => a - b); // OlogN
+  // O(nLog(n)) | O(1) space
+  array.sort((a, b) => a - b);
   let beg = 0,
     end = array.length - 1;
   // while our two points dont overlap
