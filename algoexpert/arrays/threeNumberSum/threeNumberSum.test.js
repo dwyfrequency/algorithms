@@ -1,0 +1,1 @@
+const threeNumberSum = require('./threeNumberSum');
