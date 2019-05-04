@@ -4,7 +4,12 @@
  * NOTES
  * We need a pointer that can essentially go through all the indexes front and back while the beg and end stay fixed. If we do not find a match, high - reduce the pointer. If we do not find a match low, increase the pointer.
  * If we cant find any matches with the beg and end fixed, we need to shift one of the ends.
- * How do we implement the roving pointer and how do we decide which end to shift? */
+ * How do we implement the roving pointer and how do we decide which end to shift?
+ * [a, b, c, d, e]
+ * if a + pointer(b) + e > targetsum => []
+ * else pointer++(c)
+ * if the beg idx pointer are ever next to one another and are greater than the target, we need to return an empty arr
+ * */
 
 const threeNumberSum = (arr, target) => {
   // initialize our two points
