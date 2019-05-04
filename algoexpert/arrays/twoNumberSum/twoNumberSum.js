@@ -3,7 +3,7 @@ const twoNumberSum = (array, targetSum) => {};
 // console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 10], 10));
 
 const bruteForce = (array, targetSum) => {
-  // (O)n^2 solution
+  // O(n^2) time | O(1)space
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       if (targetSum === array[i] + array[j]) {
@@ -15,7 +15,7 @@ const bruteForce = (array, targetSum) => {
 };
 
 const hashMap = (array, targetSum) => {
-  // (O)n time O(n) space solution
+  // (O)n time | O(n) space solution
   const hashMap = {};
   for (let i of array) {
     const desiredNum = targetSum - i;
