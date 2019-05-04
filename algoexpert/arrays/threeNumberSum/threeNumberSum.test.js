@@ -13,9 +13,17 @@ test('values that do sum to the target should return an array with the correct n
 });
 
 test('values that do sum to the target should return an array with the correct numbers', () => {
+  expect(threeNumberSum([1, 2, 3], 6)).toEqual([1, 2, 3]);
+});
+
+test('values that do sum to the target should return an array with the correct numbers', () => {
   expect(threeNumberSum([-1, 5, 2, 6, 4, 1], 5)).toEqual([-1, 1, 5]);
 });
 
 test('values that do sum to the target should return an array with the correct numbers', () => {
   expect(threeNumberSum([-1, 5, 2, 6, 4, 24], 5)).toEqual([-1, 2, 4]);
+});
+
+test('values that do sum to the target should return an array with the correct numbers', () => {
+  expect(threeNumberSum([-2, 8, 10, 49, 14], 5)).toEqual([-2, 10, 49]);
 });
