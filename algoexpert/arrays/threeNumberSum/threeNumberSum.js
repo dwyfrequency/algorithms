@@ -12,6 +12,7 @@
  *
  * There is a forever loop somewhere facepalm*/
 
+/*
 const threeNumberSum = (arr, target) => {
   // initialize our two points
   // we'll add 1 to the beginning pointer
@@ -35,7 +36,30 @@ const threeNumberSum = (arr, target) => {
   }
   return [];
 };
-console.log(threeNumberSum([1, 8, 10, 49, 14], 32));
+*/
+const threeNumberSum = (arr, target) => {
+  const matchesArr = [];
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length - 2; i++) {
+    let left = i + 1,
+      right = arr.length - 1;
+    while (left < right) {
+      const sum = arr[i] + arr[left] + arr[right];
+      if (sum === target) {
+        matchesArr.push([arr[i], arr[left], arr[right]]);
+        right--;
+        left++;
+      } else if (sum > target) {
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+  return matchesArr;
+};
+
+console.log(threeNumberSum([-18, 1, 8, 10, 49, 14], 32));
 
 module.exports = {
   threeNumberSum,
