@@ -9,7 +9,8 @@
  * if a + pointer(b) + e > targetsum => []
  * else pointer++(c)
  * if the beg idx pointer are ever next to one another and are greater than the target, we need to return an empty arr
- * */
+ *
+ * There is a forever loop somewhere facepalm*/
 
 const threeNumberSum = (arr, target) => {
   // initialize our two points
@@ -18,18 +19,23 @@ const threeNumberSum = (arr, target) => {
     end = arr.length - 1,
     pointerIdx = 1;
   arr.sort((a, b) => a - b);
-  while (beg + 1 < end) {
-    const sum = arr[beg] + arr[beg + 1] + arr[end];
+  while (beg < end) {
+    const sum = arr[beg] + arr[beg + pointerIdx] + arr[end];
     if (sum === target) {
-      return [arr[beg], arr[beg + 1], arr[end]];
+      return [arr[beg], arr[beg + pointerIdx], arr[end]];
     } else if (sum > target) {
       end--;
-    } else {
+      pointerIdx = beg + 1;
+    } else if (sum < target && beg + pointerIdx === end - 1) {
       beg++;
+      pointerIdx = beg + 1;
+    } else {
+      pointerIdx++;
     }
   }
   return [];
 };
+console.log(threeNumberSum([1, 8, 10, 49, 14], 32));
 
 module.exports = {
   threeNumberSum,
