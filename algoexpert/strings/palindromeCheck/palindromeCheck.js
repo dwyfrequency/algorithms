@@ -1,5 +1,5 @@
 // O(log(n)) | O(1) space
-const palindromeCheck = str => {
+const palindromeCheckPointer = str => {
   if (!str) {
     return false;
   }
@@ -13,6 +13,19 @@ const palindromeCheck = str => {
   return true;
 };
 
+const palindromeCheckRecursion = str => {
+  // recursion - we cant determine if the str passed in was '' to start
+  if (str.length <= 1) {
+    return true;
+  }
+  const lowerStr = str.toLowerCase();
+  if (lowerStr[0] === lowerStr[lowerStr.length - 1]) {
+    return palindromeCheckRecursion(lowerStr.slice(1, lowerStr.length - 1));
+  }
+  return false;
+};
+
 module.exports = {
-  palindromeCheck,
+  palindromeCheckPointer,
+  palindromeCheckRecursion,
 };

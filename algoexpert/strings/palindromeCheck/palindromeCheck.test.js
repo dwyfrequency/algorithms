@@ -1,4 +1,7 @@
-const { palindromeCheck } = require('./palindromeCheck');
+const {
+  palindromeCheckPointer,
+  palindromeCheckRecursion: palindromeCheck,
+} = require('./palindromeCheck');
 
 test('passed an empty string should return false', () => {
   expect(palindromeCheck('')).toBe(false);
