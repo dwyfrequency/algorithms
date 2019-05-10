@@ -1,6 +1,7 @@
 const {
-  palindromeCheckPointer,
-  palindromeCheckRecursion: palindromeCheck,
+  palindromeCheckPointer: palindromeCheck,
+  palindromeCheckRecursion,
+  palindromeCheckReverseStringAndCompare,
 } = require('./palindromeCheck');
 
 test('passed an empty string should return false', () => {
