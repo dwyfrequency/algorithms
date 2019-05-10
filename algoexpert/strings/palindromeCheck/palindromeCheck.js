@@ -1,3 +1,4 @@
+// O(log(n)) | O(1) space
 const palindromeCheck = str => {
   if (!str) {
     return false;
