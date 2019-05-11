@@ -18,16 +18,17 @@ const palindromeCheckPointer = str => {
 // even though it really is o(N)/2 time that converges to just O(N)
 // b/c we're dealing with recursion it is not O(1) space, we have to account for the call stack
 // with tail recursion in the compiler - it can be reduced to O(1) so long as the recursive call is the last call in the function
-const palindromeCheckRecursion = str => {
+const palindromeCheckRecursion = (str, i = 0) => {
   // recursion - we cant determine if the str passed in was '' to start
-  if (str.length <= 1) {
-    return true;
+  if (str === '' && i === 0) {
+    return false;
   }
+
+  const j = str.length - 1 - i;
   const lowerStr = str.toLowerCase();
-  if (lowerStr[0] === lowerStr[lowerStr.length - 1]) {
-    return palindromeCheckRecursion(lowerStr.slice(1, lowerStr.length - 1));
-  }
-  return false;
+  return i >= j
+    ? true
+    : lowerStr[i] === lowerStr[j] && palindromeCheckRecursion(lowerStr, i + 1);
 };
 
 // Time O(log(N)) | O(N) space
