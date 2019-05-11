@@ -30,6 +30,7 @@ const palindromeCheckRecursion = str => {
   return false;
 };
 
+// Time O(log(N)) | O(N) space
 const palindromeCheckArrayReverse = str => {
   if (!str) {
     return false;
