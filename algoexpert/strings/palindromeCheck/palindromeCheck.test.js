@@ -1,6 +1,7 @@
 const {
-  palindromeCheckPointer: palindromeCheck,
+  palindromeCheckPointer,
   palindromeCheckRecursion,
+  palindromeCheckArrayReverse: palindromeCheck,
   palindromeCheckReverseStringAndCompare,
 } = require('./palindromeCheck');
 

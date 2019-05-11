@@ -30,6 +30,17 @@ const palindromeCheckRecursion = str => {
   return false;
 };
 
+const palindromeCheckArrayReverse = str => {
+  if (!str) {
+    return false;
+  }
+  const arr = [];
+  for (let i = str.length - 1; 0 <= i; i--) {
+    arr.push(str[i]);
+  }
+  return str.toLowerCase() === arr.join('').toLowerCase();
+};
+
 // Time O(N^2) | Space O(N)
 // Time b/c we strs are immutable and we are creating a new string each time. When we create the string, we have to iterate through each letter
 // Space b/c we are just creating a string of the same length
@@ -47,5 +58,6 @@ const palindromeCheckReverseStringAndCompare = str => {
 module.exports = {
   palindromeCheckPointer,
   palindromeCheckRecursion,
+  palindromeCheckArrayReverse,
   palindromeCheckReverseStringAndCompare,
 };
