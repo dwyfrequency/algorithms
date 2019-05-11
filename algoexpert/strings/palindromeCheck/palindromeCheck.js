@@ -14,6 +14,22 @@ const palindromeCheckPointer = str => {
   return true;
 };
 
+// Same as above
+const isPalindrome = str => {
+  if (!str) {
+    return false;
+  }
+  const lowerStr = str.toLowerCase();
+  let leftIdx = 0,
+    rightIdx = str.length - 1;
+  while (leftIdx < rightIdx) {
+    if (lowerStr[leftIdx] !== lowerStr[rightIdx]) return false;
+    leftIdx++;
+    rightIdx--;
+  }
+  return true;
+};
+
 // O(log(N)) | O(N) space
 // even though it really is o(N)/2 time that converges to just O(N)
 // b/c we're dealing with recursion it is not O(1) space, we have to account for the call stack
@@ -59,6 +75,7 @@ const palindromeCheckReverseStringAndCompare = str => {
 
 module.exports = {
   palindromeCheckPointer,
+  isPalindrome,
   palindromeCheckRecursion,
   palindromeCheckArrayReverse,
   palindromeCheckReverseStringAndCompare,
