@@ -1,4 +1,5 @@
-const bubbleSort = arr => {
+// Time O(N^2) | O(1) space
+const bubbleSortOneLoop = arr => {
   if (!arr) return arr;
   let left = 0,
     right = 1,
@@ -26,8 +27,32 @@ const bubbleSort = arr => {
   return arr;
 };
 
-console.log(bubbleSort([1, 4, 3, 2]));
+const swapArrayValues = (arr, i, j) => {
+  const tempVal = arr[i];
+  arr[i] = arr[j];
+  arr[j] = tempVal;
+};
+
+const bubbleSortTwoLoops = arr => {
+  let sorted = false;
+  while (!sorted) {
+    let counter = 0;
+    sorted = true;
+    for (let i = 0, len = arr.length - counter; i < len; i++) {
+      if (arr[i] > arr[i + 1]) {
+        // if we every swap values, then the arr is not fully sorted - so stay in while loop
+        swapArrayValues(arr, i, i + 1);
+        sorted = false;
+      }
+    }
+    counter++;
+  }
+  return arr;
+};
+
+console.log(bubbleSortTwoLoops([1, 4, 3, 2]));
 
 module.exports = {
-  bubbleSort,
+  bubbleSortOneLoop,
+  bubbleSortTwoLoops,
 };
