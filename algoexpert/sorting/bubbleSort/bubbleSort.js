@@ -1,3 +1,10 @@
+// Utility func
+const swapArrayValues = (arr, i, j) => {
+  const tempVal = arr[i];
+  arr[i] = arr[j];
+  arr[j] = tempVal;
+};
+
 // Time O(N^2) | O(1) space
 const bubbleSortOneLoop = arr => {
   if (!arr) return arr;
@@ -9,9 +16,7 @@ const bubbleSortOneLoop = arr => {
   we can exclude it in our next sort  */
   while (right < arr.length - passes) {
     if (arr[left] > arr[right]) {
-      const tempVal = arr[left];
-      arr[left] = arr[right];
-      arr[right] = tempVal;
+      swapArrayValues(arr, left, right);
     }
 
     // have we hit the end of the array for the idxs we care about else keep added to our pointers
@@ -25,12 +30,6 @@ const bubbleSortOneLoop = arr => {
     }
   }
   return arr;
-};
-
-const swapArrayValues = (arr, i, j) => {
-  const tempVal = arr[i];
-  arr[i] = arr[j];
-  arr[j] = tempVal;
 };
 
 const bubbleSortTwoLoops = arr => {

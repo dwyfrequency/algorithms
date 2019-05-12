@@ -1,6 +1,6 @@
 const {
-  bubbleSortOneLoop,
-  bubbleSortTwoLoops: bubbleSort,
+  bubbleSortOneLoop: bubbleSort,
+  bubbleSortTwoLoops,
 } = require('./bubbleSort.js');
 
 test('should return same array if less than 2 elements', () => {
