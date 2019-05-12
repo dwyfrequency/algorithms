@@ -5,7 +5,7 @@ const bubbleSort = arr => {
     passes = 0;
 
   /* we know the last index of the array will be the largest on each pass through so
-  we can exclude it on our next sort  */
+  we can exclude it in our next sort  */
   while (right < arr.length - passes) {
     if (arr[left] > arr[right]) {
       const tempVal = arr[left];
@@ -13,7 +13,7 @@ const bubbleSort = arr => {
       arr[right] = tempVal;
     }
 
-    // have we hit the end of the array for the idxs we care about
+    // have we hit the end of the array for the idxs we care about else keep added to our pointers
     if (right === arr.length - 1 - passes) {
       left = 0;
       right = 1;
