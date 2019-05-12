@@ -1,4 +1,4 @@
-// Time O(1) | O(1) space
+// Time O(N) | O(1) space
 // Time is constant because we are not storing any new strings as opposed to the recursive solution
 const palindromeCheckPointer = str => {
   if (!str) {
@@ -30,7 +30,7 @@ const isPalindrome = str => {
   return true;
 };
 
-// O(log(N)) | O(N) space
+// O(N) | O(N) space
 // even though it really is o(N)/2 time that converges to just O(N)
 // b/c we're dealing with recursion it is not O(1) space, we have to account for the call stack
 // with tail recursion in the compiler - it can be reduced to O(1) so long as the recursive call is the last call in the function
@@ -47,7 +47,7 @@ const palindromeCheckRecursion = (str, i = 0) => {
     : lowerStr[i] === lowerStr[j] && palindromeCheckRecursion(lowerStr, i + 1);
 };
 
-// Time O(log(N)) | O(N) space
+// Time O(N) | O(N) space
 const palindromeCheckArrayReverse = str => {
   if (!str) {
     return false;
