@@ -1,13 +1,17 @@
-const insertionSort = arr => {
-  if (!arr.length) return arr;
+const swapValues = (a, b, arr) => {
+  const tempVal = arr[a];
+  arr[a] = arr[b];
+  arr[b] = tempVal;
+  return arr;
+};
+
+const insertionSort = (arr = []) => {
+  if (arr.length < 2) return arr;
 
   let sorted = false;
-  const newArr = [];
+  let right = 1;
   while (!sorted) {
-    const half = Math.ceil(arr.length / 2);
-    const arr1 = arr.slice(0, half),
-      arr2 = arr.slice(half);
-    for (let i = 0; i < arr.length; i++) {}
+    for (let i = 1; i < arr.length; i++) {}
   }
 };
 
