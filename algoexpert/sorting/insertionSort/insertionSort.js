@@ -5,6 +5,7 @@ const swapValues = (a, b, arr) => {
   return arr;
 };
 
+// Time O(N^2) | O(1) space
 const insertionSort = (arr = []) => {
   if (arr.length < 2) return arr;
 
