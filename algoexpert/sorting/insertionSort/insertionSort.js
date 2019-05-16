@@ -14,10 +14,11 @@ const insertionSort = (arr = []) => {
     for (let i = right; i > 0; i--) {
       if (arr[i - 1] > arr[i]) {
         swapValues(i - 1, i, arr);
-      } else {
-        if (right >= arr.length - 1) {
-          sorted = true;
-        }
+        continue;
+      }
+
+      if (right >= arr.length - 1) {
+        sorted = true;
         break;
       }
     }
