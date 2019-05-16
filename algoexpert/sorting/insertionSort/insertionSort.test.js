@@ -1,4 +1,7 @@
-const { insertionSort } = require('./insertionSort');
+const {
+  insertionSortMine,
+  insertionSortAlgoExp: insertionSort,
+} = require('./insertionSort');
 
 test('should return same array if less than 2 elements', () => {
   expect(insertionSort([1])).toEqual([1]);

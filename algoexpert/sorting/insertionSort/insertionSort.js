@@ -5,8 +5,9 @@ const swapValues = (a, b, arr) => {
   return arr;
 };
 
-// Time O(N^2) | O(1) space
-const insertionSort = (arr = []) => {
+// Worst case Time O(N^2) | O(1) space
+// Best case Time O(N) | O(1) space
+const insertionSortMine = (arr = []) => {
   if (arr.length < 2) return arr;
 
   let sorted = false;
@@ -27,13 +28,26 @@ const insertionSort = (arr = []) => {
   }
   return arr;
 };
-console.log(insertionSort([5, 3]));
 
-console.log(insertionSort([1, 4, 3]));
+const insertionSortAlgoExp = arr => {
+  for (let i = 1; i < arr.length; i++) {
+    let j = i;
+    while (j > 0 && arr[j] < arr[j - 1]) {
+      swapValues(j - 1, j, arr);
+      j -= 1;
+    }
+  }
+  return arr;
+};
 
-console.log(insertionSort([1, 4, 3, -4, 2]));
-console.log(insertionSort([1, 4, 3, 2]));
+console.log(insertionSortAlgoExp([5, 3]));
+
+console.log(insertionSortAlgoExp([1, 4, 3]));
+
+console.log(insertionSortAlgoExp([1, 4, 3, -4, 2]));
+console.log(insertionSortAlgoExp([1, 4, 3, 2]));
 
 module.exports = {
-  insertionSort,
+  insertionSortMine,
+  insertionSortAlgoExp,
 };
