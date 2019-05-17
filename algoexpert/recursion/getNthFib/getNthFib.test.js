@@ -1,0 +1,1 @@
+const { getNthFib } = require('./getNthFib');

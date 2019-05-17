@@ -6,3 +6,7 @@ const getNthFib = n => {
 };
 
 console.log(getNthFib(6));
+
+module.exports = {
+  getNthFib,
+};
