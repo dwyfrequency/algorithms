@@ -1,4 +1,4 @@
-const { selectionSort } = require('./selectionSort');
+const { selectionSortMine: selectionSort } = require('./selectionSort');
 
 test('should return same array if less than 2 elements', () => {
   expect(selectionSort([1])).toEqual([1]);
