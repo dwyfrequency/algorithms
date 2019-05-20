@@ -7,7 +7,7 @@ const factorial = n => {
 
 const getPermutations = arr => {
   if (!arr.length) return [];
-  const permutationNum = factorial(arr.length);
+  const arrLen = factorial(arr.length);
 };
 
 module.exports = { getPermutations };
