@@ -40,11 +40,33 @@ class DoublyLinkedList {
   remove(node) {
     // Time O(1) | O(1) space
     // Write your code here.
+    if (node === this.head) {
+      this.head = this.head.next;
+    } else if (node === this.tail) {
+      this.tail = this.tail.prev;
+    }
+    this.removeNodeBindings(node);
   }
 
   containsNodeWithValue(value) {
     // Time O(N) | O(1) space
     // Write your code here.
+    let node = this.head;
+    while (node !== null && node.value !== value) {
+      node = node.next;
+    }
+    return node !== null;
+  }
+
+  removeNodeBindings(node) {
+    // check it wasnt previous head
+    if (node.prev !== null) {
+      node.prev.next = node.next;
+    }
+    // check it wasnt previous tail
+    if (node.head !== null) {
+      node.next.tail = node.prev;
+    }
   }
 }
 
