@@ -13,10 +13,7 @@ class DoublyLinkedList {
       this.head = node;
       this.tail = node;
     } else {
-      node.next = this.head;
-      node.prev = null;
-      this.head.prev = node;
-      this.head = node;
+      this.insertBefore(this.head, node);
     }
   }
 
@@ -24,13 +21,9 @@ class DoublyLinkedList {
     // Time O(1) | O(1) space
     // Write your code here.
     if (!this.tail) {
-      this.head = node;
-      this.tail = node;
+      this.setHead(node);
     } else {
-      node.prev = this.tail;
-      node.next = null;
-      this.tail.next = node;
-      this.tail = node;
+      this.insertAfter(this.tail, node);
     }
   }
 
@@ -82,10 +75,22 @@ class DoublyLinkedList {
   insertAtPosition(position, nodeToInsert) {
     // Time O(P) | O(1) space where P stands for position
     // Write your code here.
-    let currentNode = this.head.next;
-    while (currentNode.value !== node.value) {
-      currentNode = currentNode.next;
-      if (!currentNode) throw new Error('No node found');
+    if (position === 1) {
+      this.setHead(nodeToInsert);
+    } else {
+      let currentNode = this.head.next;
+      let counter = 1;
+      while (currentNode && position !== counter) {
+        currentNode = currentNode.next;
+        counter++;
+      }
+      if (currentNode) {
+        // node exists and there is a position - set it
+        this.insertBefore(currentNode, nodeToInsert);
+      } else {
+        // set new value as the tail
+        this.setTail(nodeToInsert);
+      }
     }
   }
 
