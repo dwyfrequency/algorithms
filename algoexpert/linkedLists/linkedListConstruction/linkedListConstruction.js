@@ -113,10 +113,11 @@ class DoublyLinkedList {
   remove(node) {
     // Time O(1) | O(1) space
     // Write your code here.
-    if (node === this.head) {
+    if (node.value === this.head.value) {
       // if it's the head, update head to be the next node in list
       this.head = this.head.next;
-    } else if (node === this.tail) {
+    }
+    if (node.value === this.tail.value) {
       // if it's the tail, update tail to be the next to last node in list
       this.tail = this.tail.prev;
     }
@@ -146,6 +147,21 @@ class DoublyLinkedList {
     node.next = null;
   }
 }
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+const ll = new DoublyLinkedList();
+ll.setHead(new Node(1));
+console.log(ll);
+console.log('----------------');
+ll.remove(new Node(1));
+console.log(ll);
 
 // Do not edit the line below.
 exports.DoublyLinkedList = DoublyLinkedList;
