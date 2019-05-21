@@ -65,7 +65,7 @@ class DoublyLinkedList {
     nodeToInsert.next = node.next;
     nodeToInsert.prev = node;
     if (node.next === null) {
-      this.head = nodeToInsert;
+      this.tail = nodeToInsert;
     } else {
       node.next.prev = nodeToInsert;
     }
@@ -158,10 +158,9 @@ class Node {
 
 const ll = new DoublyLinkedList();
 ll.setHead(new Node(1));
+ll.setTail(new Node(2));
 console.log(ll);
 console.log('----------------');
-ll.remove(new Node(1));
-console.log(ll);
 
 // Do not edit the line below.
 exports.DoublyLinkedList = DoublyLinkedList;

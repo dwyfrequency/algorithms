@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/algoexpert/sorting/insertionSort/insertionSort.js"
+      "program": "${workspaceFolder}/algoexpert/linkedLists/linkedListConstruction/linkedListConstruction.js"
     }
   ]
 }
