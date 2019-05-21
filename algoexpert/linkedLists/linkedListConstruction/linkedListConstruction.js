@@ -37,35 +37,45 @@ class DoublyLinkedList {
   insertBefore(node, nodeToInsert) {
     // Time O(1) | O(1) space
     // Write your code here.
-    if (node.prev === null) {
-      this.setHead(nodeToInsert);
-      return;
-    } else if (node.next === null) {
-      this.setTail(nodeToInsert);
+    if (
+      nodeToInsert.value === this.head.value &&
+      nodeToInsert.value === this.tail.value
+    ) {
+      // if nodeToInsert equals the only value in a linked list of 1, dont do anything
       return;
     }
     this.remove(nodeToInsert);
     nodeToInsert.prev = node.prev;
     nodeToInsert.next = node;
-    node.prev.next = nodeToInsert;
+    if (node.prev === null) {
+      // if node is head, new node as head
+      this.head = nodeToInsert;
+    } else {
+      // if it was not head, we need to update the before node to point to our node to insert
+      node.prev.next = nodeToInsert;
+    }
     node.prev = nodeToInsert;
   }
 
   insertAfter(node, nodeToInsert) {
     // Time O(1) | O(1) space
     // Write your code here.
-    if (node.prev === null) {
-      this.setHead(nodeToInsert);
-      return;
-    } else if (node.next === null) {
-      this.setTail(nodeToInsert);
+    if (
+      nodeToInsert.value === this.head.value &&
+      nodeToInsert.value === this.tail.value
+    ) {
+      // if nodeToInsert equals the only value in a linked list of 1, dont do modify anything
       return;
     }
-
+    // remove item if already in list
     this.remove(nodeToInsert);
     nodeToInsert.next = node.next;
     nodeToInsert.prev = node;
-    node.next.prev = nodeToInsert;
+    if (node.next === null) {
+      this.head = nodeToInsert;
+    } else {
+      node.next.prev = nodeToInsert;
+    }
     node.next = nodeToInsert;
   }
 
