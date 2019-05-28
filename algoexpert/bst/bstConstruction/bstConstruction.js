@@ -37,7 +37,9 @@ class BST {
     // Write your code here.
     // Do not edit the return statement of this method.
     let currentNode = this;
+    let parentNode;
     while (currentNode.value !== value) {
+      parentNode = currentNode;
       currentNode =
         currentNode.value > value ? currentNode.left : currentNode.right;
     }
