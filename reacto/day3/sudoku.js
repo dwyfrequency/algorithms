@@ -1,3 +1,5 @@
+import { arrayExpression } from '@babel/types';
+
 /*
 Prompt
 Write a function that determines if a Sudoku solution is valid. Your input will be a 2-D array that represents a 9x9 matrix. Sudoku has three rules:
@@ -33,30 +35,22 @@ var solution = [
 [8, 9, 4]
 */
 
+const lenMatch = array => {
+  return new Set(array).size === array.length;
+};
+
 const sudoku = arr => {
-   for(let i = 0; i < arr.length; i++) {
-     for(let j = 0; j < arr[0].length; j++) {
-
-     }
-   }
-  // let startRowIdx = 0,
-  //   startColIdx = 0;
-  // while (startColIdx !== 9 && startRowIdx !== 9) {
-  //   const startValue = arr[startRowIdx][startColIdx];
-  //   for (let i = 1; i < 9; i++) {
-  //     if (arr[startRowIdx] !== undefined) {
-  //       if (
-  //         startValue === arr[startRowIdx + i] ||
-  //         startValue === arr[startRowIdx][startColIdx + i]
-  //       ) {
-  //         return false;
-  //       }
-  //     }
-  //   }
-  //   startRowIdx++;
-  //   startColIdx++;
-
+  for (let i = 0; i < arr.length; i++) {
+    const row = [],
+      col = [],
+      square = [];
+    for (let j = 0; j < arr[0].length; j++) {
+      row.push(arr[i][j]);
+      col.push(arr[j][i]);
+    }
+    if (!lenMatch(row) || !lenMatch(col)) {
+      return false;
+    }
   }
-
   return true;
 };
