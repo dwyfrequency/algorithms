@@ -39,6 +39,8 @@ const lenMatch = array => {
   return new Set(array).size === array.length;
 };
 
+// Solution: https://gist.github.com/dhf-fullstack/9a1ef10cb5cb283e72211100ec9edae0
+
 const sudoku = arr => {
   for (let i = 0; i < arr.length; i++) {
     const row = [],
