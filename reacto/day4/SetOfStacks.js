@@ -65,7 +65,8 @@ class Stack {
 class SetOfStacks {
   constructor(maxLength) {
     this.maxLength = maxLength;
-    this.stacks = [[]];
+    this.stacksOfStacks = new Stack();
+    this.currentStack = null;
   }
   push(value) {
     console.log(value);
