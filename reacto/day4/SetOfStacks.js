@@ -28,10 +28,37 @@ mySetOfStacks.push(6);
 
 
 */
+class Node {
+  constructor(value) {
+    this.value = value;
+  }
+}
+
 class Stack {
   constructor() {
-    this.head = null;
-    this.
+    this.top = null;
+    this.length = 0;
+  }
+  push(value) {
+    const newTop = new Node(value);
+    if (!this.top) {
+      this.top = newTop; // pushing to empty stack
+    } else {
+      newTop.next = this.top;
+      this.top = newTop;
+    }
+    this.length++;
+  }
+  pop() {
+    if (!this.top) return null; // stack is empty
+    const poppedValue = this.top.value;
+    this.top = this.top.next;
+    this.length--;
+    return poppedValue;
+  }
+  peek() {
+    if (!this.top) return null; // stack is empty
+    return this.top.value;
   }
 }
 
@@ -40,28 +67,11 @@ class SetOfStacks {
     this.maxLength = maxLength;
     this.stacks = [[]];
   }
-
   push(value) {
-    this.stacks = this.stacks.reduce((accum, innerArr, idx) => {
-      if (innerArr.length < this.maxLength) {
-        accum.push(innerArr.concat(value));
-      } else if (idx + 1 === this.stacks.length) {
-        accum.push(innerArr, [value]);
-      } else {
-        accum.push(innerArr);
-      }
-      return accum;
-    }, []);
+    console.log(value);
   }
-
   pop() {
-    const lastArr = this.stacks[this.stacks.length - 1];
-    if (lastArr.length === 1) {
-      this.stacks = this.stacks.filter(x => x !== lastArr);
-      return lastArr[0];
-    } else {
-      return lastArr.splice(lastArr.length - 1, 1)[0];
-    }
+    console.log();
   }
 }
 
