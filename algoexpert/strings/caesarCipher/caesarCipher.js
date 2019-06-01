@@ -1,12 +1,12 @@
 // Time O(N) | Space O(N);
 function caesarCipherEncryptor(string, key) {
-  // Write your code here.
+  // minus one so it can wrap around. 1 will now equal 'a' on wrap
   let startCharCode = 'a'.charCodeAt(0) - 1;
   let endCharCode = 'z'.charCodeAt(0);
   const arr = [];
   key %= 26;
-  for (let i = 0; i < string.length; i++) {
-    let newCode = string.charCodeAt(i) + key;
+  for (let i of string) {
+    let newCode = i.charCodeAt(0) + key;
     if (newCode > endCharCode) {
       newCode = (newCode % endCharCode) + startCharCode;
     }
@@ -15,5 +15,6 @@ function caesarCipherEncryptor(string, key) {
   return String.fromCharCode(...arr);
 }
 
+caesarCipherEncryptor('abz', 1);
 // Do not edit the line below.
 exports.caesarCipherEncryptor = caesarCipherEncryptor;
