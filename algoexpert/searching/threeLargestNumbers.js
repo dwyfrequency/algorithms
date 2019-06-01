@@ -1,25 +1,17 @@
-const swapIndexValue = (idx1, idx2, arr) => {
-  const tempVal = arr[idx1];
-  arr[idx1] = arr[idx2];
-  arr[idx2] = tempVal;
-  return;
-};
-
 const addValue = (value, array) => {
-  for (let index = array.length - 1; index > 0; index--) {
+  for (let index = array.length - 1; index >= 0; index--) {
     if (value > array[index]) {
       if (index === 2) {
-        array.shift();
-        array.push(value);
-        swapIndexValue(0, 1, array);
+        array[0] = array[1];
+        array[1] = array[2];
+        array[2] = value;
       } else if (index === 1) {
-        array.shift();
-        array.unshift(value);
-        swapIndexValue();
+        array[0] = array[1];
+        array[1] = value;
       } else {
         array[0] = value;
       }
-      break;
+      return;
     }
   }
 };
