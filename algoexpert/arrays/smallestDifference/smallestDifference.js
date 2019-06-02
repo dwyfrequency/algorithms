@@ -54,4 +54,4 @@ function smallestDifference(arrayOne, arrayTwo) {
 console.log(smallestDifference([1, 2, 4, 5], [-4, 200, 15, 22]));
 
 // Do not edit the line below.
-exports.smallestDifference = smallestDifference;
+module.exports = { smallestDifference };

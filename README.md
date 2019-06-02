@@ -2,6 +2,13 @@
 
 ## Bottom Up
 
+Useful for recursion and dynamic programming problems.
+dynamic programming problems: are problems where the solution is composed of solutions to the same problem with smaller inputs (as with multiplying the numbers 1..n1..n, above).
+
+## Memoization
+
+[Memoization](https://www.interviewcake.com/concept/javascript/memoization?)
+
 ### Avoiding Recursion
 
 Because recursion can add to space complexity, assuming no Tail Call Optimization, we may want to avoid using recursion. To do so, we will want to take a bottoms up approach instead of top down.
