@@ -35,7 +35,7 @@ function smallestDifference(arrayOne, arrayTwo) {
   while (
     arr1Idx < arrayOne.length ||
     arr2Idx < arrayTwo.length ||
-    minDelta === 0
+    minDelta !== 0
   ) {
     const currentDelta = arrayOne[arr1Idx] - arrayTwo[arr2Idx];
     if (Math.abs(currentDelta) < minDelta) {
@@ -43,7 +43,7 @@ function smallestDifference(arrayOne, arrayTwo) {
       num1 = arrayOne[arr1Idx];
       num2 = arrayTwo[arr2Idx];
     }
-    if (num1 < num2) {
+    if (arrayOne[arr1Idx] < arrayTwo[arr2Idx]) {
       arr1Idx++;
     } else {
       arr2Idx++;
@@ -51,6 +51,8 @@ function smallestDifference(arrayOne, arrayTwo) {
   }
   return [num1, num2];
 }
+
+console.log(smallestDifference([1, 2, 4, 5], [-4, 200, 15, 22]));
 
 // Do not edit the line below.
 exports.smallestDifference = smallestDifference;
