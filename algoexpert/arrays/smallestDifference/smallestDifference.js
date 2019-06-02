@@ -27,21 +27,26 @@ function smallestDifference(arrayOne, arrayTwo) {
   // all until they
   arrayOne.sort((a, b) => a - b);
   arrayTwo.sort((a, b) => a - b);
-  let delta = Infinity,
+  let minDelta = Infinity,
     num1,
     num2;
-  for (let i of arrayOne) {
-    let leftIdx = 0;
-    while (leftIdx < arrayTwo.length - 1) {
-      const currDif = i - arrayTwo[leftIdx];
-      if (Math.abs(currDif) < delta) {
-        delta = Math.abs(currDif);
-        num1 = i;
-        num2 = arrayTwo[leftIdx];
-      }
-      if (delta === 0) {
-        return [num1, num2];
-      }
+  let arr1Idx = 0,
+    arr2Idx = 0;
+  while (
+    arr1Idx < arrayOne.length ||
+    arr2Idx < arrayTwo.length ||
+    minDelta === 0
+  ) {
+    const currentDelta = arrayOne[arr1Idx] - arrayTwo[arr2Idx];
+    if (Math.abs(currentDelta) < minDelta) {
+      minDelta = Math.abs(currentDelta);
+      num1 = arrayOne[arr1Idx];
+      num2 = arrayTwo[arr2Idx];
+    }
+    if (num1 < num2) {
+      arr1Idx++;
+    } else {
+      arr2Idx++;
     }
   }
   return [num1, num2];
