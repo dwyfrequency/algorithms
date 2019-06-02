@@ -51,6 +51,35 @@ function smallestDifference(arrayOne, arrayTwo) {
   return [num1, num2];
 }
 
+// Time O(Nlog(N) + Mlog(M)) from the sorting
+// where N is the length of array1 and M is the length of array2
+// Space O(1) - new array is negligible
+const smallestDifferenceAlgoExpert = (arrayOne, arrayTwo) => {
+  arrayOne.sort((a, b) => a - b);
+  arrayTwo.sort((a, b) => a - b);
+  let arr1Idx = 0,
+    arr2Idx = 0;
+  let smallestDif = Infinity;
+  let smallestPair = [];
+  while (arr1Idx < arrayOne.length && arr2Idx < arrayTwo.length) {
+    const firstNum = arrayOne[arr1Idx];
+    const secondNum = arrayTwo[arr2Idx];
+    const currentDif = firstNum - secondNum;
+    if (firstNum < secondNum) {
+      arr1Idx++;
+    } else if (firstNum > secondNum) {
+      arr2Idx++;
+    } else {
+      return [firstNum, secondNum];
+    }
+    if (Math.abs(currentDif) < smallestDif) {
+      smallestDif = Math.abs(currentDif);
+      smallestPair = [firstNum, secondNum];
+    }
+  }
+  return smallestPair;
+};
+
 console.log(smallestDifference([1, 2, 4, 5], [-4, 200, 15, 22]));
 
 // Do not edit the line below.
