@@ -33,8 +33,8 @@ function smallestDifference(arrayOne, arrayTwo) {
   let arr1Idx = 0,
     arr2Idx = 0;
   while (
-    arr1Idx < arrayOne.length ||
-    arr2Idx < arrayTwo.length ||
+    arr1Idx < arrayOne.length &&
+    arr2Idx < arrayTwo.length &&
     minDelta !== 0
   ) {
     const currentDelta = arrayOne[arr1Idx] - arrayTwo[arr2Idx];
