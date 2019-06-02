@@ -24,7 +24,6 @@ function smallestDifferenceNaive(arrayOne, arrayTwo) {
 function smallestDifference(arrayOne, arrayTwo) {
   // Write your code here.
   // sort both arrs - start from first index and iterate through
-  // all until they
   arrayOne.sort((a, b) => a - b);
   arrayTwo.sort((a, b) => a - b);
   let minDelta = Infinity,
