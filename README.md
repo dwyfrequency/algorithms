@@ -33,7 +33,11 @@ function product1ToN(n) {
 
 ## Recursion
 
-Always have a base case
+What is the blueprint for a recursive function?
+
+1.  *Function definition* --- Our function should accept parameters. This way we can always test the value of these params to check whether or not we have reached the base case.
+2.  *Defining our base case* --- What is the trivial case, where we already know the solution for the problem.
+3.  *Make the problem smaller --- *Incrementing/decrementing our parameters which are passed into every recursive function call. If we don't do this, our problem will never be terminated, and we will hit an infinite loop.
 
 ## Big O Space
 
