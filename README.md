@@ -1,5 +1,20 @@
 # algorithms
 
+## General Tips
+
+REACT is a way to handle whiteboard interview problems, and we’re going to get some preliminary practice: you’ll be doing these problems together in class throughout senior phase. We don’t have whiteboards in the video classrooms, of course, so use a text editor, or a drawing program, or even sketch on paper and hold the paper up to the camera to show the interviewer.
+
+R - repeat the question to the interviewer. Ask questions if you aren’t sure about anything! Now is your time to make sure you understand the question.
+
+E - examples: generate examples. Write them on the whiteboard (or in your text editor). Consider edge cases - empty inputs, unusual values.
+
+A - approach: explain to the interviewer how you think you can solve the problem.
+
+C - code: write your code on the whiteboard (or in our case, a text editor.) - You don’t have to run your code - it can even be pseudo-code. As long as you can
+explain your approach in detail.
+
+T - test: walk through your code with your examples. Demonstrate in detail how it works. You may uncover bugs. Fix them!
+
 ## Bottom Up
 
 Useful for recursion and dynamic programming problems.
