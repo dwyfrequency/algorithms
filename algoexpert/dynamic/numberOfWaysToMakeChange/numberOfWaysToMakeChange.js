@@ -54,6 +54,30 @@ const numberOfWaysToMakeChangeRecursivePt2 = (
     )
   );
 };
+// 1 1 1 1 1
+// 1 4
+// [1,  1,  1,  1,  2,  2]
+// [0,   1,  2,  3,  4,   5]
+// Test case [1,4 6], 5
+// Solution 2
+const numberOfWaysToMakeChangeIterative = (target, denoms) => {
+  /* create an array with the indexes representing the total coin cnt. Make sure to initialize idx 0 to 1
+  For each denom,  *//
+  const coinCntPerIdxArr = Array.from({ length: target + 1 }, () => 0);
+  coinCntPerIdxArr[0] = 1;
+  for (const denom of denoms) {
+    for (
+      let coinCntIdx = 1;
+      coinCntIdx < coinCntPerIdxArr.length;
+      coinCntIdx++
+    ) {
+      if (coinCntIdx >= denom) {
+        coinCntPerIdxArr[coinCntIdx] += coinCntPerIdxArr[coinCntIdx - denom];
+      }
+    }
+  }
+  return coinCntPerIdxArr[target];
+};
 
 // 1,1,1,1
 // 1,1,2
