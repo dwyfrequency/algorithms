@@ -36,7 +36,7 @@ const numberOfWaysToMakeChangeRecursivePt2 = (
   if (target < 0) {
     return 0;
   }
-  // if we are out of demons and target is greate than 0, there are no solutions
+  // if we are out of demons and target is greater than 0, there are no solutions
   if (arrLen <= 0 && target > 0) {
     return 0;
   }
