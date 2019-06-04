@@ -62,7 +62,9 @@ const numberOfWaysToMakeChangeRecursivePt2 = (
 // Solution 2
 const numberOfWaysToMakeChangeIterative = (target, denoms) => {
   /* create an array with the indexes representing the total coin cnt. Make sure to initialize idx 0 to 1
-  For each denom,  *//
+  For each denom, we minus it from the currentCoin index which gives us the remainder.
+  We add the remainder to the current cnt at the location.
+  If the subtraction equals 0, we just add the 1. Any amount of coins it takes to get the remainder, we add it. */
   const coinCntPerIdxArr = Array.from({ length: target + 1 }, () => 0);
   coinCntPerIdxArr[0] = 1;
   for (const denom of denoms) {
