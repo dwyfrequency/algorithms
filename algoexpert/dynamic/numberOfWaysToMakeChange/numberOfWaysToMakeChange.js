@@ -59,6 +59,8 @@ const numberOfWaysToMakeChangeRecursivePt2 = (
 // [1,  1,  1,  1,  2,  2]
 // [0,   1,  2,  3,  4,   5]
 // Test case [1,4 6], 5
+// O(N*D)| Space O(N)
+// N being the target and D being the total number of denoms
 // Solution 2
 const numberOfWaysToMakeChangeIterative = (target, denoms) => {
   /* create an array with the indexes representing the total coin cnt. Make sure to initialize idx 0 to 1
