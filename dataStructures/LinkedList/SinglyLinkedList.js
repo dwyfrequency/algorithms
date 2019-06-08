@@ -1,3 +1,8 @@
+/**
+ * Note, in our node class we have a prev property.
+ * This should never be used in a singly linked list
+ *  */
+
 class Node {
   constructor(value) {
     this.prev = null;
