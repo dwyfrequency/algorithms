@@ -47,7 +47,8 @@ var findAnagramsIter = function(
   rightPointer = 1,
   startIdxArr = []
 ) {
-  while (rightPointer < s.length) {
+  // maybe create a set
+  while (rightPointer <= s.length) {
     const lenDif = rightPointer - leftPointer;
     if (lenDif < p.length) {
       rightPointer++;
@@ -72,5 +73,7 @@ var findAnagramsIter = function(
   return startIdxArr;
 };
 
-console.log(findAnagramsIter('cbaebabacd', 'abc')); // [0, 6]
-console.log(findAnagramsIter('acdcaeccde', 'c'));
+// console.log(findAnagramsIter('cbaebabacd', 'abc')); // [0, 6]
+// console.log(findAnagramsIter('acdcaeccde', 'c')); // [1,3,6,7]
+// console.log(findAnagramsIter('abab', 'ab')); // [0, 1, 2]
+console.log(findAnagramsIter('baa', 'aa')); // [1]
