@@ -98,6 +98,7 @@ class SinglyLinkedList {
         }
         break;
       }
+      parentNode = currentNode;
       currentNode = currentNode.next;
       counter++;
     }
