@@ -44,39 +44,21 @@ var findAnagramsIter = function(
   s,
   p,
   leftPointer = 0,
-  rightPointer = 1,
+  rightPointer = p.length,
   startIdxArr = []
 ) {
-  // maybe create a set
+  const anagramSorted = p
+    .split('')
+    .sort()
+    .join('');
   while (rightPointer <= s.length) {
-    const lenDif = rightPointer - leftPointer;
-    if (lenDif < p.length) {
-      rightPointer++;
-    } else if (lenDif === p.length) {
-      const potentialAnagram = s.slice(leftPointer, rightPointer);
-      let match = true;
-      for (const char of p) {
-        if (!potentialAnagram.includes(char)) {
-          match = false;
-          break;
-        }
-      }
-      if (match === true) {
-        for (const char of potentialAnagram) {
-          if (!p.includes(char)) {
-            match = false;
-            break;
-          }
-        }
-      }
-      if (match) {
-        startIdxArr.push(leftPointer);
-      }
-      ++leftPointer;
-      ++rightPointer;
-    } else {
-      leftPointer++;
-    }
+    s
+      .slice(leftPointer, rightPointer)
+      .split('')
+      .sort()
+      .join('') === anagramSorted && startIdxArr.push(leftPointer);
+    ++leftPointer;
+    ++rightPointer;
   }
   return startIdxArr;
 };
@@ -85,3 +67,4 @@ console.log(findAnagramsIter('cbaebabacd', 'abc')); // [0, 6]
 console.log(findAnagramsIter('acdcaeccde', 'c')); // [1,3,6,7]
 console.log(findAnagramsIter('abab', 'ab')); // [0, 1, 2]
 console.log(findAnagramsIter('baa', 'aa')); // [1]
+console.log(findAnagramsIter('ababababab', 'aab')); // [0, 2, 4, 6];
