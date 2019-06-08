@@ -61,6 +61,14 @@ var findAnagramsIter = function(
           break;
         }
       }
+      if (match === true) {
+        for (const char of potentialAnagram) {
+          if (!p.includes(char)) {
+            match = false;
+            break;
+          }
+        }
+      }
       if (match) {
         startIdxArr.push(leftPointer);
       }
@@ -73,7 +81,7 @@ var findAnagramsIter = function(
   return startIdxArr;
 };
 
-// console.log(findAnagramsIter('cbaebabacd', 'abc')); // [0, 6]
-// console.log(findAnagramsIter('acdcaeccde', 'c')); // [1,3,6,7]
-// console.log(findAnagramsIter('abab', 'ab')); // [0, 1, 2]
+console.log(findAnagramsIter('cbaebabacd', 'abc')); // [0, 6]
+console.log(findAnagramsIter('acdcaeccde', 'c')); // [1,3,6,7]
+console.log(findAnagramsIter('abab', 'ab')); // [0, 1, 2]
 console.log(findAnagramsIter('baa', 'aa')); // [1]
