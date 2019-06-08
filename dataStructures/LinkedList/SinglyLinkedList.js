@@ -41,17 +41,27 @@ class SinglyLinkedList {
     if (!this.tail) {
       this.head = this.tail = newTail;
     } else {
-      this.head.next = newTail;
-      this.head = newTail;
+      this.tail.next = newTail;
+      this.tail = newTail;
     }
   }
   remove(value) {
-    let currentNode = this.head;
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      return;
+    }
+    let parentNode = this.head;
+    let currentNode = this.head.next;
     while (currentNode) {
       if (currentNode.value === value) {
         if (!currentNode.next) {
-          // curr
+          // is it the tail
+          this.tail = parentNode;
+          this.tail.next = null;
+        } else {
+          this.parentNode.next = this.currentNode.next;
         }
+        break;
       }
       currentNode = currentNode.next;
     }
@@ -68,7 +78,30 @@ class SinglyLinkedList {
     }
     return false;
   }
-  insertAtPosition(position, nodeToInsert) {}
+  insertAtPosition(position, nodeToInsert) {
+    if (position === 0) {
+      this.setHead(nodeToInsert);
+    }
+    let parentNode = this.head;
+    let currentNode = this.head.next;
+    let counter = 1;
+    while (currentNode) {
+      if (counter === position) {
+        if (!currentNode.next) {
+          // is it the tail
+          this.tail.next = nodeToInsert;
+          this.tail = nodeToInsert;
+        } else {
+          nodeToInsert.next = this.parentNode.next;
+          this.parentNode.next = nodeToInsert;
+          nodeToInsert.next = this.currentNode;
+        }
+        break;
+      }
+      currentNode = currentNode.next;
+      counter++;
+    }
+  }
   insertBefore(value) {
     const newNode = new Node(value);
   }
