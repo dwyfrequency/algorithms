@@ -9,6 +9,8 @@ function balancedBrackets(string) {
   const stack = [];
   for (const char of string) {
     // first expression checks that there are entries in the stack
+    // second, if the top of the stack equals the characters matching opening
+    // pop it off b/c it's a match
     if (stack.length && stack[stack.length - 1] === bracketMatchObj[char]) {
       stack.pop();
     } else {
