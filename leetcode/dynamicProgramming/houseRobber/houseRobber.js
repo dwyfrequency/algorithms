@@ -7,21 +7,24 @@ var rob = function(nums) {
   if (!nums.length) {
     return nums;
   }
-  const cntNums = Array.from({ length: nums });
-  if (nums.length === 1) {
-    cntNums.push(nums[0]);
-  }
-  if (nums.length === 2) {
-    cntNums.push(nums[0] > nums[1] ? nums[0] : nums[1]);
-  }
+  const cntNums = [];
 
-  for (let i = 2; i < nums.length; i++) {
-    const inplaceSum = cntNums[i - 2] + nums[i];
-    if (inplaceSum > nums[i - 1]) {
-      cntNums.push(inplaceSum);
+  for (let i = 0; i < nums.length; i++) {
+    if (i === 0) {
+      cntNums.push(nums[i]);
+    } else if (i === 1) {
+      cntNums.push(nums[0] > nums[1] ? nums[0] : nums[1]);
     } else {
-      cntNums.push(nums[i - 1]);
+      const inplaceSum = cntNums[i - 2] + nums[i];
+      if (inplaceSum > cntNums[i - 1]) {
+        cntNums.push(inplaceSum);
+      } else {
+        cntNums.push(cntNums[i - 1]);
+      }
     }
   }
   return cntNums[cntNums.length - 1];
 };
+
+console.log(rob([1, 2, 3, 1])); // 4
+console.log(rob([4, 9, 7, 1])); // 11
