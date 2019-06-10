@@ -3,16 +3,16 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+// Time O(N) | Space O(1)
 var rob = function(nums) {
   if (!nums.length) {
     return nums;
   }
-  const cntNums = [];
+  const cntNums = [nums[0]];
 
-  for (let i = 0; i < nums.length; i++) {
-    if (i === 0) {
-      cntNums.push(nums[i]);
-    } else if (i === 1) {
+  for (let i = 1; i < nums.length; i++) {
+    if (i === 1) {
       cntNums.push(nums[0] > nums[1] ? nums[0] : nums[1]);
     } else {
       const inplaceSum = cntNums[i - 2] + nums[i];
