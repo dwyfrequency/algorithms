@@ -5,11 +5,14 @@ class MinMaxStack {
     this.min = null;
     this.max = null;
   }
+  // Time O(1) | Space O(1)
   peek() {
     // Write your code here.
     return this.stack[this.stack.length - 1];
   }
 
+  // Time O(N) | Space O(1)
+  // worst case we have to go through all elements to get the min || max
   pop() {
     // Write your code here.
     const poppedVal = this.stack.pop();
@@ -24,6 +27,7 @@ class MinMaxStack {
     return poppedVal;
   }
 
+  // Time O(1) | Space O(1)
   push(number) {
     // Write your code here.
     if (this.min === null || this.max === null) {
@@ -37,23 +41,27 @@ class MinMaxStack {
     this.stack.push(number);
   }
 
+  // Time O(1) | Space O(1)
   getMin() {
     // Write your code here.
-
     return this.min;
   }
 
+  // Time O(1) | Space O(1)
   getMax() {
     // Write your code here.
     return this.max;
   }
 
+  // Time O(N) | Space O(1)
   setMin() {
     this.min = this.stack.reduce(
       (accum, num) => (accum > num ? num : accum),
       Infinity
     );
   }
+
+  // Time O(N) | Space O(1)
   setMax() {
     this.max = this.stack.reduce(
       (accum, num) => (accum < num ? num : accum),
