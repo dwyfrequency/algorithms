@@ -72,6 +72,8 @@ class MinMaxStackMe {
 
 class MinMaxStackAlgo {
   constructor() {
+    // stores has map of the min max for each step in the stack
+    // ie. when we pop off the maximum or min, we dont need to recalc it. B/c it is not only stored for idx 5, it's stored for all.
     this.minMaxStack = [];
     this.stack = [];
   }
