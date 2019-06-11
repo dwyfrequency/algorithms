@@ -4,6 +4,8 @@
  * length n.
  * 'aba', 10 will resolve to abaabaaba
  */
+
+// Time O(S), | O(S) where is the length of the string
 function repeatedString(s, n) {
   // take the floor so we know how many time the base string repeats
   const fullRepeats = Math.floor(n / s.length);
@@ -22,7 +24,7 @@ function repeatedString(s, n) {
   }
   return fullRepeats * aCntArr[aCntArr.length - 1] + aCntArr[remainder];
 }
-//          [ 0: a, 1: b, 2: a  ]
+// str      [ 0: a,  1: b, 2: a  ]
 //aCntArr   [ 0: 0 , 1: 1, 2: 1, 3: 2]
 console.log(repeatedString('aba', 10)); // 7
 
