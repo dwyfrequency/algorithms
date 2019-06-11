@@ -1,3 +1,4 @@
+// Time O(N) | Space O(1)
 function jumpingOnClouds(c) {
   let leftMostPointer = 0;
   let stepCnt = 0;
