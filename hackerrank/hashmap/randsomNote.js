@@ -1,5 +1,6 @@
 // https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
 
+// Time(m + n)? | Space O(N)
 function checkMagazine(magazine, note) {
   if (magazine.length < note.length) {
     console.log('No');
