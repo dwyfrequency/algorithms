@@ -5,16 +5,23 @@ function checkMagazine(magazine, note) {
     console.log('No');
     return 'No';
   }
-  const dict = {};
-  magazine.forEach(word => {
-    dict[word] = word;
-  });
-  for (const word in note) {
-    if (dict[word] === undefined) {
+  const dict = magazine.reduce((accum, word) => {
+    if (accum[word]) {
+      accum[word] += 1;
+    } else {
+      accum[word] = 1;
+    }
+    return accum;
+  }, {});
+  for (const word of note) {
+    if (!dict[word]) {
       console.log('No');
       return 'No';
+    } else {
+      dict[word] -= 1;
     }
   }
+  console.log('Yes');
   return 'Yes';
 }
 
