@@ -30,3 +30,4 @@ const needleHaystack = (hayStackText, needleText) => {
 
 console.log(needleHaystack('abbbaa', 'aba')); // -1
 console.log(needleHaystack('abbbaa', 'aa')); // 4
+console.log(needleHaystack('jack', 'ck')); // 2
