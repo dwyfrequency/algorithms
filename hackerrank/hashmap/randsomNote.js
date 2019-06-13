@@ -2,14 +2,25 @@
 
 function checkMagazine(magazine, note) {
   if (magazine.length < note.length) {
+    console.log('No');
     return 'No';
   }
   const dict = {};
-  magazine.forEach(word => (dict[word] = word));
+  magazine.forEach(word => {
+    dict[word] = word;
+  });
   for (const word in note) {
-    if (!dict[word]) {
+    if (dict[word] === undefined) {
+      console.log('No');
       return 'No';
     }
   }
   return 'Yes';
 }
+
+console.log(
+  checkMagazine(
+    ['give', 'me', 'one', 'grand', 'today', 'night'],
+    ['give', 'one', 'grand', 'today']
+  )
+);

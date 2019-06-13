@@ -1,0 +1,9 @@
+let links = document.querySelectorAll('a')
+linksArr = Array.from(links);
+linksArr.forEach((link, index) => {
+	console.log(link.innerText, index)
+	link.innerHTML = `
+	${link.innerText}${link}
+`
+	console.log(link)
+})
