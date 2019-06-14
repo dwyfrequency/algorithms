@@ -1,5 +1,6 @@
 // https://gist.github.com/sungsauce/1ea1b74af70b21d156ac51f64b626819
 // finds all possible permutations *while* maintaining the order of the characters
+// Time O(n!) | Space O(n!)
 function stringPermutations(str) {
   if (str.length === 1) return [str]; // base case
   const all = [];
@@ -63,6 +64,36 @@ const getPermuRecurse = str => {
     // too many results see example with btt
   }
   return results.sort();
+};
+
+const getPermuRecurseV2 = str => {
+  if (str.length === 1) {
+    return [str];
+  }
+  const results = [];
+  let i = 0;
+  while (i < str.length) {
+    const startLetter = str[i];
+    // slice up to letter and after
+    const remainingLetters = str.slice(0, i) + str.slice(1 + i);
+    getPermuRecurse(remainingLetters).forEach(subPerm => {
+      results.push(startLetter + subPerm);
+    });
+    while (str[i] === startLetter) i++;
+    // we cant just do i++ b/c if a string has duplicate letters we'll get
+    // too many results see example with btt
+  }
+  return results;
+};
+
+/*
+Sorting the str first means we only have to sort n characters vs. n! slots in array
+*/
+const getPermsuOptomized = str => {
+  return str
+    .split('')
+    .sort()
+    .join('');
 };
 
 console.log(getPermuRecurse('cat')); // ["act", "atc", "cat", "cta", "tac", "tca"]
