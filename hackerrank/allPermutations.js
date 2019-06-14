@@ -30,3 +30,26 @@ function sortedStringPermutations(str) {
   // then find the ordered permutations of that sorted string
   return stringPermutations(sortedStr);
 }
+
+const getPermuRecurse = str => {
+  if (str.length === 1) {
+    return [str];
+  }
+  const results = [];
+  let i = 0;
+  while (i < str.length) {
+    const startLetter = str[i];
+    // slice up to letter and after
+    const remainingLetters = str.slice(0, i) + str.slice(1 + i);
+    getPermuRecurse(remainingLetters).forEach(subPerm => {
+      results.push(startLetter + subPerm);
+    });
+    while (str[i] === startLetter) i++;
+    // we cant just do i++ b/c if a string has duplicate letters we'll get
+    // too many results see example with btt
+  }
+  return results.sort();
+};
+
+console.log(getPermuRecurse('cat')); // ["act", "atc", "cat", "cta", "tac", "tca"]
+console.log(getPermuRecurse('btt')); // ["btt", "tbt", "ttb"]
