@@ -31,6 +31,20 @@ function sortedStringPermutations(str) {
   return stringPermutations(sortedStr);
 }
 
+/**
+ *
+ * We take the string and have a pointer to the start of the str.
+ * We then create a string of all remaining characters in the str
+ * next, we call our function recursively with the remaining
+ * once, we hit our base case. We'll have an array of one character which
+ * we'll loop over appending our startLetter to
+ * After, we've looped over all letters returned from recurse. We increment
+ * the index and in turn the startLetter. Now instead of having 'at', we'll have
+ * 'ta'
+ * When incrementing i for startLetter, we check if after we've incremented i
+ * is our start letter different. If not, keep adding.
+ */
+
 const getPermuRecurse = str => {
   if (str.length === 1) {
     return [str];
