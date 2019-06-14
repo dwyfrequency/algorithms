@@ -64,5 +64,27 @@ const getPermsuOptomized = str => {
     .join('');
 };
 
-console.log(getPermuRecurse('cat')); // ["act", "atc", "cat", "cta", "tac", "tca"]
-console.log(getPermuRecurse('btt')); // ["btt", "tbt", "ttb"]
+// console.log(getPermuRecurse('cat')); // ["act", "atc", "cat", "cta", "tac", "tca"]
+// console.log(getPermuRecurse('btt')); // ["btt", "tbt", "ttb"]
+
+function stringPermutations(str) {
+  let results = [];
+  const letters = str.split('').sort();
+  results.push([letters.shift()]);
+  while (letters.length) {
+    const currentLetter = letters.shift();
+    const tempResults = [];
+    // eslint-disable-next-line no-loop-func
+    results.forEach(currResult => {
+      for (let i = 0; i < currResult.length; i++) {
+        const tmp = currResult.slice(); // make copy
+        tmp.unshift(currentLetter);
+        tempResults.push(tmp);
+      }
+    });
+    results = tempResults;
+  }
+  return results.join('');
+}
+
+console.log(stringPermutations('cat'));
