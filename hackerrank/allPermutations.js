@@ -67,24 +67,53 @@ const getPermsuOptomized = str => {
 // console.log(getPermuRecurse('cat')); // ["act", "atc", "cat", "cta", "tac", "tca"]
 // console.log(getPermuRecurse('btt')); // ["btt", "tbt", "ttb"]
 
+// function stringPermutations(str) {
+//   let results = [];
+//   const letters = str.split('').sort();
+//   results.push([letters.shift()]);
+//   while (letters.length) {
+//     const currentLetter = letters.shift();
+//     const tempResults = [];
+//     // eslint-disable-next-line no-loop-func
+//     results.forEach(currResult => {
+//       for (let i = 0; i < currResult.length; i++) {
+//         const tmp = currResult.slice(); // make copy
+//         tmp.unshift(currentLetter);
+//         tempResults.push(tmp);
+//       }
+//     });
+//     results = tempResults;
+//   }
+//   return results
+//     .map(letterArr => letterArr.join(''))
+//     .filter((word, index, thisArr) => thisArr.indexOf(word) === index);
+// }
+
 function stringPermutations(str) {
   let results = [];
-  const letters = str.split('').sort();
-  results.push([letters.shift()]);
+  let letters = str.split('');
+  results.push([letters.shift()]); //add first letter (as an array) to results
   while (letters.length) {
-    const currentLetter = letters.shift();
-    const tempResults = [];
-    // eslint-disable-next-line no-loop-func
-    results.forEach(currResult => {
-      for (let i = 0; i < currResult.length; i++) {
-        const tmp = currResult.slice(); // make copy
-        tmp.unshift(currentLetter);
-        tempResults.push(tmp);
+    let curLetter = letters.shift();
+    let tmpResults = [];
+    results.forEach(function(curResult) {
+      for (let i = 0; i <= curResult.length; i++) {
+        let tmp = curResult.slice(); //make copy so we can modify it
+        //insert the letter at the current position
+        tmp.splice(i, 0, curLetter); // adds curLetter at the index of i
+        tmpResults.push(tmp);
       }
     });
-    results = tempResults;
+    results = tmpResults; //overwrite the previous results
   }
-  return results.join('');
+  return results
+    .map(function(letterArr) {
+      return letterArr.join('');
+    })
+    .filter(function(el, index, self) {
+      return self.indexOf(el) === index; //filter out non-unique words
+    })
+    .sort();
 }
 
 console.log(stringPermutations('cat'));
