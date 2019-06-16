@@ -19,7 +19,9 @@ function kadanesAlgorithmAlgoExpert(
   maxSum = array[0],
   total = array[0]
 ) {
-  // Write your code here.
+  // iterate through the array, if the total running sum plus the currentNumber is greatest that's
+  // our new total else take the currentNumber
+  // last take the greatest of the total and maxSum
   for (let i = 1; i < array.length; i++) {
     const currNum = array[i];
     total = Math.max(total + currNum, currNum);
