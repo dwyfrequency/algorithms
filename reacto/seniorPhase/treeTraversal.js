@@ -33,8 +33,9 @@ d.children.push(i, j);
  * through our callback and add the children. This way he do everything on
  * each depth first
  */
-const breadthFirstSearch = (node, callback) => {
-  const queue = [node];
+// breadthFirst: Each "level" of the tree is printed in order
+const breadthFirstSearch = (startNode, callback) => {
+  const queue = [startNode];
   while (queue.length) {
     const currentNode = queue.shift();
     callback(currentNode.value);
@@ -42,4 +43,12 @@ const breadthFirstSearch = (node, callback) => {
   }
 };
 
-breadthFirstSearch(a, console.log);
+// depthFirstPreOrder;
+const depthFirstPreOrder = (startNode, callback = console.log) => {
+  callback(startNode.value);
+  startNode.children.forEach(child => depthFirstPreOrder(child));
+};
+
+// Test
+// breadthFirstSearch(a, console.log);
+depthFirstPreOrder(a);
