@@ -28,6 +28,11 @@ c.children.push(f, g, h);
 h.children.push(m);
 d.children.push(i, j);
 
+/*
+ * We use a queue to store our nodes. We then run our node value
+ * through our callback and add the children. This way he do everything on
+ * each depth first
+ */
 const breadthFirstSearch = (node, callback) => {
   const queue = [node];
   while (queue.length) {
