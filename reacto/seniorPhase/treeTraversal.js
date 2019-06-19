@@ -43,12 +43,20 @@ const breadthFirstSearch = (startNode, callback) => {
   }
 };
 
-// depthFirstPreOrder;
+// depthFirstPreOrder: Children nodes are visited before sibling nodes
+
 const depthFirstPreOrder = (startNode, callback = console.log) => {
   callback(startNode.value);
   startNode.children.forEach(child => depthFirstPreOrder(child));
 };
 
+// depthFirstPostOrder: A node is not traversed until all its children are reached
+const depthFirstPostOrder = (startNode, callback = console.log) => {
+  startNode.children.forEach(child => depthFirstPostOrder(child));
+  callback(startNode.value);
+};
+
 // Test
 // breadthFirstSearch(a, console.log);
-depthFirstPreOrder(a);
+// depthFirstPreOrder(a);
+depthFirstPostOrder(a);
