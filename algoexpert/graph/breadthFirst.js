@@ -13,6 +13,10 @@ class Node {
     return this;
   }
 
+  // Time O(v + e) | Space O(v)
+  // space (v) is b/c our array will return all vertices
+  // also, worst case it is a depth of one so our queue could contain all
+  // vertices
   breadthFirstSearch(array) {
     // Write your code here.
     const queue = [this];
