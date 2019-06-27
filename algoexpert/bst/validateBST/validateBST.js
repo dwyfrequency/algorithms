@@ -8,7 +8,7 @@ const validateBST = tree => {
 
 function validateBSTHelper(tree, min, max) {
   if (!tree.value) return true;
-  if (tree.value <= min || tree.value > max) return false;
+  if (tree.value < min || tree.value >= max) return false;
   return (
     validateBSTHelper(tree.left, min, tree.value) &&
     validateBSTHelper(tree.right, tree.value, max)
