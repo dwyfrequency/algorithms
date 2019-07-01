@@ -15,7 +15,15 @@ function TreeNode(val) {
   this.left = this.right = null;
 }
 
-var preorderTraversal = function(root, arr = []) {
+var preorderTraversalRecursive = function(root, arr = []) {
+  if (!root) return [];
+  arr.push(root.val);
+  preorderTraversal(root.left, arr);
+  preorderTraversal(root.right, arr);
+  return arr;
+};
+
+var preorderTraversalIterative = function(root) {
   if (!root) return [];
   arr.push(root.val);
   preorderTraversal(root.left, arr);
