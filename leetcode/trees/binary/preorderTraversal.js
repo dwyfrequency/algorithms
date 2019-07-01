@@ -23,11 +23,44 @@ var preorderTraversalRecursive = function(root, arr = []) {
   return arr;
 };
 
-var preorderTraversalIterative = function(root) {
-  if (!root) return [];
-  arr.push(root.val);
-  preorderTraversal(root.left, arr);
-  preorderTraversal(root.right, arr);
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+// used with stack
+var preorderTraversalStack = function(root, arr = []) {
+  if (!root) return arr;
+  const stack = [root];
+  while (stack.length) {
+    const currentNode = stack.pop();
+    if (currentNode) {
+      arr.push(currentNode.val);
+      stack.push(currentNode.right);
+      stack.push(currentNode.left);
+    }
+  }
+  return arr;
+};
+
+// Made with queue
+var preorderTraversalQueue = function(root, arr = []) {
+  if (!root) return arr;
+  const queue = [root];
+  while (queue.length) {
+    const currentNode = queue.pop();
+    if (currentNode) {
+      arr.push(currentNode.val);
+      queue.push(currentNode.left);
+      queue.push(currentNode.right);
+    }
+  }
   return arr;
 };
 
