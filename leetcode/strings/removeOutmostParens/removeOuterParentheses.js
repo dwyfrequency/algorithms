@@ -1,3 +1,4 @@
+// URL: https://leetcode.com/problems/remove-outermost-parentheses/submissions/
 /**
  * @param {string} S
  * @return {string}
