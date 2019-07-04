@@ -1,3 +1,4 @@
+// URL: https://leetcode.com/problems/self-dividing-numbers/submissions/
 /**
  * @param {number} left
  * @param {number} right
