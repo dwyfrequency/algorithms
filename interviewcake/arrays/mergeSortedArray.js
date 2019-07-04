@@ -1,3 +1,4 @@
+// URL: https://www.interviewcake.com/question/javascript/merge-sorted-arrays?course=fc1&section=array-and-string-manipulation
 // Time O(N + M) | Space (N + M)
 const mergeArrays = (arr1, arr2) => {
   let arr1Pnt = 0,
