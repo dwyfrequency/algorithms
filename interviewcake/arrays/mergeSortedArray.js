@@ -1,3 +1,4 @@
+// Time O(N + M) | Space (N + M)
 const mergeArrays = (arr1, arr2) => {
   let arr1Pnt = 0,
     arr2Pnt = 0;
