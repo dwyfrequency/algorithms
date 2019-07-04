@@ -34,13 +34,40 @@ Example 2:
  * @param {number[][]} A
  * @return {number[][]}
  */
+const flipAndInvertImageSlow = function(arr) {
+  for (const row of arr) {
+    row.reverse().map(num => +!num);
+  }
+  return arr;
+};
+
+var flipAndInvertImageSlightlyFaster = function(arr) {
+  for (let row = 0; row < arr.length; row++) {
+    const innerArr = [];
+    for (let rightPnt = arr[row].length - 1; rightPnt >= 0; rightPnt--) {
+      innerArr.push(+!arr[row][rightPnt]);
+    }
+    arr[row] = innerArr;
+  }
+  return arr;
+};
+
+var flipAndInvertImageBitFlip = function(A) {
+  return A.map(a => {
+    return a.reverse().map(b => b ^ 1);
+  });
+};
+
 var flipAndInvertImage = function(arr) {
   for (let row = 0; row < arr.length; row++) {
-    const rowLen = arr[row].length - 1;
-    for (let col = 0; col <= rowLen; col++) {
-      const newRight = +!arr[row][col];
-      arr[row][rowLen] = +!arr[row][rowLen - col];
-      arr[row][rowLen - col] = newRight;
+    let leftPointer = 0,
+      rightPointer = arr.length - 1;
+    while (leftPointer <= rightPointer) {
+      const temp = +!arr[row][leftPointer];
+      arr[row][leftPointer] = +!arr[row][rightPointer];
+      arr[row][rightPointer] = temp;
+      leftPointer++;
+      rightPointer--;
     }
   }
   return arr;
