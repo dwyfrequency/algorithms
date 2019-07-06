@@ -6,7 +6,7 @@ function swapNodeVals(node) {
 }
 
 // Time O(N) | Space O(N)
-function invertBinaryTree(tree) {
+function invertBinaryTreeIterative(tree) {
   // Write your code here.
   // thinking use BFS and swap each
   if (!tree) return tree;
@@ -17,6 +17,14 @@ function invertBinaryTree(tree) {
     curNode.left && queue.push(curNode.left);
     curNode.right && queue.push(curNode.right);
   }
+  return tree;
+}
+
+function invertBinaryTreeRecursive(tree) {
+  if (!tree) return;
+  swapNodeVals(tree);
+  invertBinaryTreeRecursive(tree.left);
+  invertBinaryTreeRecursive(tree.right);
   return tree;
 }
 
