@@ -31,4 +31,4 @@ function invertBinaryTreeRecursive(tree) {
 }
 
 // Do not edit the line below.
-exports.invertBinaryTree = invertBinaryTree;
+exports.invertBinaryTree = invertBinaryTreeRecursive;
