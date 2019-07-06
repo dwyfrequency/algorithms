@@ -11,15 +11,19 @@ function longestSubstringWithoutDuplication(string) {
   while (rightPnt < string.length) {
     if (set.has(string[rightPnt])) {
       maxarr.shift();
+      maxarr.length === 0 && maxarr.push(string[leftPnt]);
       leftPnt++;
       rightPnt++;
     } else {
       set.add(string[rightPnt]);
       maxarr.push(string[rightPnt]);
       rightPnt++;
+      if (maxarr.length < rightPnt - leftPnt) {
+        maxarr = string.slice(leftPnt, rightPnt + 1).split('');
+      }
     }
-    maxLen = Math.max(rightPnt - leftPnt, maxLen);
   }
+  return;
 }
 
 // Do not edit the line below.
