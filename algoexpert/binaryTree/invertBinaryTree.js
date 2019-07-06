@@ -20,6 +20,8 @@ function invertBinaryTreeIterative(tree) {
   return tree;
 }
 
+// Time O(N) | O(D) where d is the depth; essentially depth
+// is O(log n)
 function invertBinaryTreeRecursive(tree) {
   if (!tree) return;
   swapNodeVals(tree);
