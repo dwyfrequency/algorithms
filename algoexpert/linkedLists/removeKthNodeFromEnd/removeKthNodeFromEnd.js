@@ -81,6 +81,7 @@ function removeKthNodeFromEndV3(head, k) {
     counter++;
   }
   if (!curNode) {
+    // k is the len of the ll, we place the head and return
     leftPnt.value = leftPnt.next.value;
     leftPnt.next = leftPnt.next.next;
     return;
