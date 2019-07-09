@@ -11,17 +11,13 @@ const logReversedLinkedList = headNode => {
 
 logReversedLinkedList(nums); // 3, 2, 1
 
+// Time O(N) | Space O(N)
+// have to go through and store each node in LL
 const reversedLinkedList = (headNode, newList = null) => {
   if (!headNode) return newList; // once we've reached tail of original LL return our newList
   const list = mkNode(headNode.value, newList); // create new list node with our currentNodeValue and the newList as it's next property
   // once we hit base case just bubble up the created list
   return reversedLinkedList(headNode.next, list);
 };
-
-// const reversedLinkedList = headNode => {
-//   if (!headNode) return;
-//   reversedLinkedList();
-//   const newNode = mkNode(headNode.value);
-// };
 
 console.log(reversedLinkedList(nums)); // returns { value: 3, next: { value: 2, next: { value: 1, next: null } } }
