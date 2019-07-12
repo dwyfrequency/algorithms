@@ -8,3 +8,8 @@ const throttle = (delay, func) => {
     }
   };
 };
+
+const throttledFunc = throttle(20, x => console.log(X));
+for (let i = 0; i < 40; i++) {
+  throttledFunc(i);
+}
