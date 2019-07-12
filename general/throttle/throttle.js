@@ -9,7 +9,7 @@ const throttle = (delay, func) => {
   };
 };
 
-const throttledFunc = throttle(20, x => console.log(X));
+const throttledFunc = throttle(0.001, x => console.log(x));
 for (let i = 0; i < 40; i++) {
   throttledFunc(i);
 }
