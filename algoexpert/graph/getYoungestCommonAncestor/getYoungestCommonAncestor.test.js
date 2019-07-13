@@ -7,6 +7,9 @@ function helper(root, ancestor) {
   }
   return queue;
 }
+
+// Time O(d) | Space O(d)
+// d is depth
 function getYoungestCommonAncestorTeamRichieNJack(
   topAncestor,
   descendantOne,
@@ -32,7 +35,31 @@ function getYoungestCommonAncestorTeamRichieNJack(
       }
     }
   }
-  return root;
+  return topAncestor;
 }
+
+const getYoungestCommonAncestor = (
+  topAncestor,
+  descendantOne,
+  descendantTwo
+) => {
+  const queue1 = helper(topAncestor, descendantOne);
+  const queue2 = helper(topAncestor, descendantTwo);
+  if (queue1.length < queue2.length) {
+    while (queue1.length !== queue2.length) queue2.shift();
+  } else if (queue2.length < queue1.length) {
+    while (queue1.length !== queue2.length) queue1.shift();
+  }
+  while (queue1.length && queue2.length) {
+    if (queue1[0] === queue2[0]) {
+      return queue1[0];
+    } else {
+      queue1.shift();
+      queue2.shift();
+    }
+  }
+  return topAncestor;
+};
+
 // Do not edit the line below.
 exports.getYoungestCommonAncestor = getYoungestCommonAncestor;
