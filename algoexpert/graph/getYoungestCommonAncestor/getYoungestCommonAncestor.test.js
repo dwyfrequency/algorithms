@@ -61,5 +61,49 @@ const getYoungestCommonAncestor = (
   return topAncestor;
 };
 
+/* Algo Exp solution */
+
+const getDepth = (root, curNode) => {
+  let depthCnt = 0;
+  while (curNode !== root) {
+    depthCnt++;
+    curNode = curNode.ancestor;
+  }
+  return depthCnt;
+};
+
+const findYoungestCommon = (diff, largestDepthDesc, smallestDepthDesc) => {
+  while (diff > 0) {
+    diff--;
+    largestDepthDesc = largestDepthDesc.ancestor;
+  }
+  while (largestDepthDesc !== smallestDepthDesc) {
+    largestDepthDesc = largestDepthDesc.ancestor;
+    smallestDepthDesc = smallestDepthDesc.ancestor;
+  }
+  return largestDepthDesc;
+};
+
+const youngestCommonAncestorAlgoExp = (
+  topAncestor,
+  descendantOne,
+  descendantTwo
+) => {
+  const depthCntDescOne = getDepth(topAncestor, descendantOne);
+  const depthCntDescTwo = getDepth(topAncestor, descendantTwo);
+  if (depthCntDescOne < depthCntDescTwo) {
+    return findYoungestCommon(
+      depthCntDescTwo - depthCntDescOne,
+      descendantTwo,
+      descendantOne
+    );
+  } else {
+    return findYoungestCommon(
+      depthCntDescOne - depthCntDescTwo,
+      descendantOne,
+      descendantTwo
+    );
+  }
+};
 // Do not edit the line below.
-exports.getYoungestCommonAncestor = getYoungestCommonAncestor;
+exports.getYoungestCommonAncestor = youngestCommonAncestorAlgoExp;
