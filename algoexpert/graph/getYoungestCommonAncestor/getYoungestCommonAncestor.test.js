@@ -63,6 +63,7 @@ const getYoungestCommonAncestor = (
 
 /* Algo Exp solution */
 
+// increment depthCnt until we hit the root
 const getDepth = (root, curNode) => {
   let depthCnt = 0;
   while (curNode !== root) {
@@ -73,22 +74,27 @@ const getDepth = (root, curNode) => {
 };
 
 const findYoungestCommon = (diff, largestDepthDesc, smallestDepthDesc) => {
+  // if the depths are different, then we arent at the common ancestor
   while (diff > 0) {
     diff--;
     largestDepthDesc = largestDepthDesc.ancestor;
   }
+  // while the values are not equal keep going up the graph
   while (largestDepthDesc !== smallestDepthDesc) {
     largestDepthDesc = largestDepthDesc.ancestor;
     smallestDepthDesc = smallestDepthDesc.ancestor;
   }
+  // return the value once equal
   return largestDepthDesc;
 };
 
+// O(d) | O(1)
 const youngestCommonAncestorAlgoExp = (
   topAncestor,
   descendantOne,
   descendantTwo
 ) => {
+  // get how deep it is from the root
   const depthCntDescOne = getDepth(topAncestor, descendantOne);
   const depthCntDescTwo = getDepth(topAncestor, descendantTwo);
   if (depthCntDescOne < depthCntDescTwo) {
