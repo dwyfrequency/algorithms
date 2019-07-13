@@ -13,3 +13,23 @@ var sortArrayByParity = function(arr) {
   }
   return evens.concat(odds);
 };
+
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParityV2 = function(arr) {
+  const evens = [],
+    odds = [];
+  for (const num of arr) {
+    num % 2 === 0 ? evens.push(num) : odds.push(num);
+  }
+  evens.push(...odds);
+  return evens;
+};
+
+var sortArrayByParityFunctional = function(A) {
+  let even = A.filter(a => a % 2 === 0);
+  let odd = A.filter(a => a % 2 === 1);
+  return even.concat(odd);
+};
