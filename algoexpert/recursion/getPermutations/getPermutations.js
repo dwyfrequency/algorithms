@@ -1,16 +1,20 @@
-const factorial = n => {
-  if (n === 1) {
-    return 1;
+function getPermutations(remainingArr, builtPermArr = [], permsArr = []) {
+  // Write your code here.
+  if (remainingArr.length === 1) {
+    permsArr.push(builtPermArr.concat(remainingArr));
+    return permsArr;
   }
-  return n * calcPermutations(n - 1);
-};
+  remainingArr.forEach((num, idx) => {
+    builtPermArr.push(num);
+    getPermutations(
+      remainingArr.slice(0, idx).concat(remainingArr.slice(idx + 1)),
+      builtPermArr,
+      permsArr
+    );
+    builtPermArr.pop();
+  });
+  return permsArr;
+}
 
-const getPermutations = arr => {
-  if (!arr.length) return [];
-  const arrLen = factorial(arr.length);
-  for(let i = 0; i < arrLen; i++) {
-    for(let )
-  }
-};
-
-module.exports = { getPermutations };
+// Do not edit the line below.
+exports.getPermutations = getPermutations;
