@@ -1,6 +1,10 @@
+// remainingArr: unused letters, builtPermArr: current permutation,
+// permsArr: final cumulative perms arr
 function getPermutations(remainingArr, builtPermArr = [], permsArr = []) {
   // Write your code here.
   if (remainingArr.length === 1) {
+    // if length of remaining is one, concat it to the builtPermArr
+    // to push our finalize perm into the permsArr
     permsArr.push(builtPermArr.concat(remainingArr));
     return permsArr;
   }
