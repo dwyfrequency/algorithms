@@ -25,9 +25,6 @@ function binarySearch(arr, target) {
   }
   return false;
 }
-console.log(binarySearch([1, 3, 4, 5, 7], 3));
-console.log(binarySearch([1, 3, 4, 5, 7], 7));
-console.log(binarySearch([1, 3, 4, 5, 7], 5));
 
 exports.binarySearch = binarySearch;
 
