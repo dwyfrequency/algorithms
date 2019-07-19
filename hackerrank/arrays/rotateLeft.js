@@ -23,10 +23,15 @@ function rotLeft(arr, n) {
 
 function rotLeftSad(a, d) {
   const len = a.length;
-  const retArr = Array.from({ length: len });
+  d = d % len; // in case d is greater than len, we bring it down
+  const retArr = Array.from({ length: len }); // create an array of size arr len
   for (let i = 0; i < len; i++) {
-    const newIdx = Math.abs((i - d) % len);
-    retArr[newIdx] = a[i];
+    const newIdx = i - d; // if newIdx is negative, subtrack by length
+    if (newIdx < 0) {
+      retArr[len + newIdx] = a[i];
+    } else {
+      retArr[newIdx] = a[i];
+    }
   }
   return retArr;
 }
