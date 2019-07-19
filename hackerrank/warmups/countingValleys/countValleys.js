@@ -58,3 +58,20 @@ function countingValleys(n, s) {
   }
   return valleyCnt;
 }
+
+function countingValleysForOf(n, s) {
+  // cnt will keep current balance of up and downs
+  // valley cnt will cnt how often then cnt becomes negative
+  // which indicates a valley
+  let cnt = 0,
+    valleyCnt = 0;
+  for (const letter of s) {
+    if (letter === 'D') {
+      cnt--;
+      if (cnt === -1) valleyCnt++;
+    } else {
+      cnt++;
+    }
+  }
+  return valleyCnt;
+}
