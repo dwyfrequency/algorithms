@@ -20,3 +20,21 @@ function rotLeft(arr, n) {
   }
   return newArr;
 }
+
+function rotLeftSad(a, d) {
+  const len = a.length;
+  const retArr = Array.from({ length: len });
+  for (let i = 0; i < len; i++) {
+    const newIdx = Math.abs((i - d) % len);
+    retArr[newIdx] = a[i];
+  }
+  return retArr;
+}
+
+function rotLeftCheeky(a, d) {
+  d = d % a.length; // in case d is greater than the length
+  return a.slice(d).concat(a.slice(0, d)); // start beg of array at d
+  // concat up to d at the end
+}
+
+rotLeftSad([1, 2, 3, 4, 5], 8);
