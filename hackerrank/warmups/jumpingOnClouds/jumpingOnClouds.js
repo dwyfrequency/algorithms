@@ -28,4 +28,20 @@ function jumpingOnCloudsWhileLoop(c) {
   return stepCnt;
 }
 
+// Complete the jumpingOnClouds function below.
+function jumpingOnCloudsDifWhile(c) {
+  let leftIdx = 0,
+    cnt = 0;
+  // to prevent off by one error, we need to reduce by 1
+  // this is because we want to exactly at the last index and not
+  // generate any steps past that
+  while (leftIdx < c.length - 1) {
+    // if + 2 does not equal 1, we should take 2 steps even if it's undefined
+    // our will loop will kill us once our leftIdx is equal to or greater than
+    // our length
+    leftIdx += c[leftIdx + 2] === 1 ? 1 : 2;
+    cnt++;
+  }
+  return cnt;
+}
 console.log(jumpingOnCloudsWhileLoop([0, 0, 1, 0, 0, 1, 0]));
