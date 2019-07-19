@@ -59,6 +59,7 @@ function countingValleys(n, s) {
   return valleyCnt;
 }
 
+// Time O(n) | Space O(n)
 function countingValleysForOf(n, s) {
   // cnt will keep current balance of up and downs
   // valley cnt will cnt how often then cnt becomes negative
@@ -68,6 +69,7 @@ function countingValleysForOf(n, s) {
   for (const letter of s) {
     if (letter === 'D') {
       cnt--;
+      // if will capture first step into the valley
       if (cnt === -1) valleyCnt++;
     } else {
       cnt++;
