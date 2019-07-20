@@ -17,8 +17,10 @@ function repeatedString(s, n) {
   // init 0 index to 0
   aCntArr[0] = 0;
   for (let i = 0; i < s.length; i++) {
+    // seed each current cell with the val of the prev cell
     aCntArr[i + 1] = aCntArr[i];
     if (s[i] === 'a') {
+      // increment by 1 if ch is an 'a'
       aCntArr[i + 1] += 1;
     }
   }
