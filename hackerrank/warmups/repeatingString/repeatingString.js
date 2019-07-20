@@ -31,3 +31,21 @@ console.log(repeatedString('aba', 10)); // 7
 console.log(repeatedString('b', 10)); // 0
 console.log(repeatedString('a', 10)); // 10
 console.log(repeatedString('a', 1)); // 1
+
+// Complete the repeatedString function below.
+// Time O(N) | Space(1)
+function repeatedStringPt2(s, n) {
+  const numOfWholeRepeates = Math.floor(n / s.length);
+  const overFlow = n % s.length;
+  let fullACnt = 0,
+    partialACnt = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === 'a') {
+      if (i < overFlow) {
+        partialACnt++;
+      }
+      fullACnt++;
+    }
+  }
+  return fullACnt * numOfWholeRepeates + partialACnt;
+}
