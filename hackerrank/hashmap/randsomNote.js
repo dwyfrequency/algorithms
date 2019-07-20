@@ -26,6 +26,22 @@ function checkMagazine(magazine, note) {
   return 'Yes';
 }
 
+function checkMagazineAnother(magazine, note) {
+  let { length: totalWords } = note;
+  const wordFrequencyCnt = note.reduce((accum, word) => {
+    if (accum[word]) accum[word] += 1;
+    else accum[word] = 1;
+    return accum;
+  }, {});
+  for (const ch of magazine) {
+    if (wordFrequencyCnt[ch]) {
+      wordFrequencyCnt[ch] -= 1;
+      totalWords--;
+    }
+  }
+  totalWords ? console.log('No') : console.log('Yes');
+}
+
 console.log(
   checkMagazine(
     ['give', 'me', 'one', 'grand', 'today', 'night'],
