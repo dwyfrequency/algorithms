@@ -33,7 +33,9 @@ const indexOf = (str, searchStr) => {
   const searchLen = searchStr.length - str.length + 1;
   for (let i = 0; i < searchLen; i++) {
     for (let j = 0; j < str.length; j++) {
+      // if we dont find a match, break
       if (str[j] !== searchStr[j + i]) break;
+      // if we havent broken and j is 1 less than length, we have a match
       if (j + 1 === str.length) return i;
     }
   }
