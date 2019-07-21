@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/mini-max-sum/problem
 function miniMaxSum(arr) {
   arr.sort((a, b) => a - b);
   console.log(
