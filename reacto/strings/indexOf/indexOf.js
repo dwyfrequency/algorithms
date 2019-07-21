@@ -1,3 +1,4 @@
+// Time O(n * m) | Space O(1)
 const indexOf = (str, searchStr) => {
   if (str.length > searchStr.length) return -1;
   let foundIdx = -1,
