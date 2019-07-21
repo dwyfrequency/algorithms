@@ -1,3 +1,4 @@
+// Not complete
 function diagonalDifference(arr) {
   // Write your code here
   let rowDepth = arr.length;
