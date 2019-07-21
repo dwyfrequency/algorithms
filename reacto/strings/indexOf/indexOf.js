@@ -1,5 +1,5 @@
 // Time O(n * m) | Space O(1)
-const indexOf = (str, searchStr) => {
+const indexOfMehSolution = (str, searchStr) => {
   // if the str we're searching for (str) is longer than the searched str
   // return -1
   if (str.length > searchStr.length) return -1;
@@ -27,5 +27,21 @@ const indexOf = (str, searchStr) => {
   }
   return foundIdx;
 };
+
+const indexOf = (str, searchStr) => {
+  // 5 - 3 = 2  => + 1 => 3. Without the +1, we'll have off by one err
+  const searchLen = searchStr.length - str.length + 1;
+  for (let i = 0; i < searchLen; i++) {
+    for (let j = 0; j < str.length; j++) {
+      if (str[j] !== searchLen[j + i]) break;
+      if (j + 1 === str.length) return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * jest ./indexOf.test.js
+ */
 
 exports.indexOf = indexOf;
