@@ -1,3 +1,18 @@
+function longestPalindromicSubstring(str) {
+  let maxSubString = '';
+  for (let i = 0; i < str.length - 1; i++) {
+    for (let j = 1; j < str.length; j++) {
+      if (maxSubString.length < j - i + 1 && str[i] === str[j]) {
+        const subString = str.slice(i, j + 1);
+        if (isPalindrome(subString)) {
+          maxSubString = subString;
+        }
+      }
+    }
+  }
+  return maxSubString;
+}
+
 function isPalindrome(str) {
   let leftPnt = 0,
     rightPnt = str.length - 1;
@@ -14,4 +29,5 @@ function isPalindrome(str) {
 
 module.exports = {
   isPalindrome,
+  longestPalindromicSubstring,
 };
