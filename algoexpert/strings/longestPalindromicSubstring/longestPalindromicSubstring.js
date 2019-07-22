@@ -27,7 +27,6 @@ function isPalindrome(str) {
     leftPnt++;
     rightPnt--;
   }
-
   return true;
 }
 
