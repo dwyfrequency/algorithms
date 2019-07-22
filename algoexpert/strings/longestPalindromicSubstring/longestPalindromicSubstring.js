@@ -1,5 +1,6 @@
 function longestPalindromicSubstring(str) {
-  let maxSubString = '';
+  if (!str) return str;
+  let maxSubString = str[0];
   for (let i = 0; i < str.length - 1; i++) {
     for (let j = 1; j < str.length; j++) {
       if (maxSubString.length < j - i + 1 && str[i] === str[j]) {
