@@ -5,6 +5,9 @@ const {
 
 describe('longestPalindromicSubstring', () => {
   test('should return longest palindrome', () => {
+    expect(longestPalindromicSubstring('a')).toBe('a');
+  });
+  test('should return longest palindrome', () => {
     expect(longestPalindromicSubstring('abba')).toBe('abba');
   });
   test('should return longest palindrome', () => {
