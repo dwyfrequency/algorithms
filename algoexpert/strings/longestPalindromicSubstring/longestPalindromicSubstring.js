@@ -1,4 +1,5 @@
-// Time O(n^2) | Space O(n)
+// Time O(n^3) | Space O(n)
+// time is n^3 because n^2 for the double for loop * n for the isPalindrome
 function longestPalindromicSubstring(str) {
   if (!str) return str;
   let maxSubString = str[0];
