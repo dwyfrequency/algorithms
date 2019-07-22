@@ -1,3 +1,4 @@
+// Time O(n^2) | Space O(n)
 function longestPalindromicSubstring(str) {
   if (!str) return str;
   let maxSubString = str[0];
@@ -14,6 +15,7 @@ function longestPalindromicSubstring(str) {
   return maxSubString;
 }
 
+// Time O(n) | Space O(1)
 function isPalindrome(str) {
   let leftPnt = 0,
     rightPnt = str.length - 1;
