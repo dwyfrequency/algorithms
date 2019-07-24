@@ -8,6 +8,7 @@ const rotateLeftExtraSpace = (nums, k) => {
   return nums.slice(-k).concat(nums.slice(0, -k));
 };
 
+// Time O(N) | Space O(1)
 const rotateSpaceOn1 = (nums, k) => {
   k = k % nums.length;
   while (k > 0) {
