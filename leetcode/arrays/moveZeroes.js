@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
+// Time O(n) | Space O(1)
 var moveZeroes = function(nums) {
   let leftPnt = 0,
     rightPnt = 1;
