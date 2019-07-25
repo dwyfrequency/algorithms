@@ -1,3 +1,5 @@
+// Time O(n + m) | Space O(m)
+// m being the smaller arr
 // eslint-disable-next-line complexity
 const intersection = (arr1, arr2) => {
   const retArr = [];
