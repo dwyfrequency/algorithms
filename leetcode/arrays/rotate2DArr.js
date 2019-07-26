@@ -10,11 +10,13 @@ const swapIdxs = arr => {
     const temp = arr[leftIdx];
     arr[leftIdx] = arr[rightIdx];
     arr[rightIdx] = temp;
+    leftIdx++;
+    rightIdx--;
   }
 };
 
 const rotate = function(matrix) {
-  for (const row of martix) {
+  for (const row of matrix) {
     swapIdxs(row);
   }
   return matrix;
