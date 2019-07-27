@@ -2,6 +2,7 @@
  * @param {string} s
  * @return {number}
  */
+// Time O(n) | Space O(n/2)
 var firstUniqChar = function(s) {
   const hashMap = {};
   for (const ch of s) {
