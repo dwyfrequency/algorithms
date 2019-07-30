@@ -12,3 +12,16 @@ var maxProfitSlow = function(prices) {
   }
   return curMax;
 };
+
+var maxProfitFast = function(prices) {
+  let max = 0;
+  let min = Infinity; // highest possible val
+  for (let i = 0; i < prices.length; i++) {
+    min = Math.min(min, prices[i]); // create a min value
+    // subtract min value from prices[item] and compare prev max
+    max = Math.max(prices[i] - min, max);
+  }
+  return max;
+};
+
+console.log(maxProfitFast([1, 2]));
