@@ -9,6 +9,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+// Time O(n) | Space O(log n )
 var isValidBST = function(root, minMax = { min: -Infinity, max: Infinity }) {
   //  we need to create a min max at each node
   if (!root) return true;
