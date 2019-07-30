@@ -13,7 +13,13 @@ var maxProfitSlow = function(prices) {
   return curMax;
 };
 
+// Time O(n) | Space O(1)
 var maxProfitFast = function(prices) {
+  /* iterate through entire array
+     calculate the min value at each location
+     subtract min from current value at each location
+     compare that val to current max
+     return max once done */
   let max = 0;
   let min = Infinity; // highest possible val
   for (let i = 0; i < prices.length; i++) {
