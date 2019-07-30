@@ -2,6 +2,7 @@
  * @param {string} s
  * @return {boolean}
  */
+// Time O(n) | Space O(n)
 var isValid = function(s) {
   if (s.length % 2 !== 0) return false;
   const hashMap = {
