@@ -2,16 +2,17 @@
  * @param {string[]} strs
  * @return {string}
  */
+// Time O(n^2) | Space O(n)
 var longestCommonPrefix = function(strs) {
-    strs.sort((a, b) => a.length - b.length)
-    let subStringMatch = strs[0] || ""
-    for(const str of strs) {
-      for(let i = 0; i < subStringMatch.length; i++) {
-        if(subStringMatch[i] != str[i]) {
-          subStringMatch = subStringMatch.slice(0,i)
-          break
-        }
+  strs.sort((a, b) => a.length - b.length);
+  let subStringMatch = strs[0] || '';
+  for (const str of strs) {
+    for (let i = 0; i < subStringMatch.length; i++) {
+      if (subStringMatch[i] !== str[i]) {
+        subStringMatch = subStringMatch.slice(0, i);
+        break;
       }
     }
-  return subStringMatch
+  }
+  return subStringMatch;
 };
