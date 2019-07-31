@@ -17,7 +17,7 @@ var strStrBlem = function(haystack, needle) {
   return -1;
 };
 
-// Time O(h*n) | Space O(h/n)
+// Time O(h*n) | Space O(h)
 var strStr = function(haystack, needle) {
   if (haystack.length < needle.length) return -1;
   if (!needle || haystack === needle) return 0;
