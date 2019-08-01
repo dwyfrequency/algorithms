@@ -4,10 +4,13 @@
 3. create a stack to keep track of nodes to visit
 4. check whether indices in the stack have been have been visited
 5. if it has not been visited and it is an island (1), get neighbors UP, Down, etc
+  a. make sure to record that an island has been found
 6. add neighbors to queue
+7. after iterating through all neighbors, return 1 if island found or 0 if none
 
 */
 
+// eslint-disable-next-line complexity
 const getNeighbors = (row, col, arr) => {
   const returnArr = [];
   // UP
