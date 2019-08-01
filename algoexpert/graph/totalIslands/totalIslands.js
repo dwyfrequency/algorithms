@@ -1,3 +1,13 @@
+/*
+1. create duplicate array to track nodes you've visited
+2. iterate through the current array, and do a dfs on any non-visited
+3. create a stack to keep track of nodes to visit
+4. check whether indices in the stack have been have been visited
+5. if it has not been visited and it is an island (1), get neighbors UP, Down, etc
+6. add neighbors to queue
+
+*/
+
 const getNeighbors = (row, col, arr) => {
   const returnArr = [];
   // UP
