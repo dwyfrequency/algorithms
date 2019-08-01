@@ -47,6 +47,7 @@ const exploreNode = (rowIdx, colIdx, visitedArr, arr) => {
   return island ? 1 : 0;
 };
 
+// Time O(w*h) | Space O(w*h)
 const totalIslands = arr => {
   const visitedArr = arr.map(innerArr => innerArr.map(_ => false));
   let totalIslandsCnt = 0;
@@ -58,7 +59,5 @@ const totalIslands = arr => {
   }
   return totalIslandsCnt;
 };
-
-console.log(totalIslands([[1, 0, 1], [0, 1, 1]]));
 
 exports.totalIslands = totalIslands;
