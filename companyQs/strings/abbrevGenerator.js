@@ -41,6 +41,8 @@ const abbrevGenerator = arr => {
           arr[oldIdx],
           arr[i]
         );
+        abbrevReturnArr[oldIdx] = newPrevAbbrev;
+        abbrevReturnArr[i] = newCurAbbrev;
       } else {
         abbrevReturnArr.push(curAbbrev);
         hashMap[curAbbrev] = i;
