@@ -24,7 +24,7 @@ const generateNewAbbrev = str => {
   return str[0] + delta + str[str.length - 1];
 };
 
-// Time O(n * m) | Space O(n)
+// Time O(n * m) | Space O(n * m)
 const abbrevGenerator = arr => {
   const abbrevReturnArr = [];
   const hashMap = {};
