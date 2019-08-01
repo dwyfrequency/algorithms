@@ -10,3 +10,5 @@ describe('riverSizes sizes validation', () => {
     expect(riverSizes([[1, 0, 1], [0, 0, 1]])).toEqual([1, 2]);
   });
 });
+
+// npm test algoexpert/graph/riverSizes/riverSizes.test.js
