@@ -11,12 +11,10 @@ const resolveAbbrevConflict = (str1, str2) => {
   while (str1[counter] === str2[counter]) counter++;
   // have to add 2 b/c counter 0 is the first char so we need to add 1,
   // and add another 1 b/c of the last ch in the str
-  const delta = counter + 2;
+  const delta = str1.length - counter - 2;
   const str1Abbrev = str1.slice(0, counter + 1) + delta + str1.slice(-1);
   const str2Abbrev = str2.slice(0, counter + 1) + delta + str2.slice(-1);
-  return str1.length === str1Abbrev.length
-    ? [str1, str2]
-    : [str1Abbrev, str2Abbrev];
+  return !delta ? [str1, str2] : [str1Abbrev, str2Abbrev];
 };
 
 const generateNewAbbrev = str => {
@@ -26,12 +24,13 @@ const generateNewAbbrev = str => {
   return str[0] + delta + str[str.length - 1];
 };
 
+// Time O(n * m) | Space O(n)
 const abbrevGenerator = arr => {
   const abbrevReturnArr = [];
   const hashMap = {};
   for (let i = 0; i < arr.length; i++) {
     const currStr = arr[i];
-    if (currStr <= 3) {
+    if (currStr.length <= 3) {
       abbrevReturnArr.push(currStr);
     } else {
       const curAbbrev = generateNewAbbrev(arr[i]);
@@ -41,6 +40,8 @@ const abbrevGenerator = arr => {
           arr[oldIdx],
           arr[i]
         );
+        hashMap[newPrevAbbrev] = oldIdx;
+        hashMap[newCurAbbrev] = i;
         abbrevReturnArr[oldIdx] = newPrevAbbrev;
         abbrevReturnArr[i] = newCurAbbrev;
       } else {
@@ -51,3 +52,16 @@ const abbrevGenerator = arr => {
   }
   return abbrevReturnArr;
 };
+
+console.log(
+  abbrevGenerator([
+    'book',
+    'cat',
+    'interveel',
+    'interveal',
+    'lookook',
+    'loooook',
+    'cheelell',
+    'cheechel',
+  ])
+);
