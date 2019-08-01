@@ -49,3 +49,5 @@ const riverSizes = arr => {
 };
 
 console.log(riverSizes([[1, 0], [0, 1]]));
+
+module.exports = { riverSizes };
