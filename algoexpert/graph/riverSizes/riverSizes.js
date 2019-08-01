@@ -27,6 +27,7 @@ const exploreNode = (rowIdx, colIdx, visitedArr, sizes, arr) => {
     riverSize += 1;
     stack.push(...getNeighbors(currRow, currCol, arr));
   }
+  return riverSize;
 };
 // [[]] => []
 const riverSizes = arr => {
@@ -35,7 +36,9 @@ const riverSizes = arr => {
   for (let row = 0; row < arr.length; row++) {
     for (let col = 0; col < arr[0].length; col++) {
       if (visitedArr[row][col]) continue;
-      exploreNode(row, col, visitedArr, sizes);
+      const size = exploreNode(row, col, visitedArr, sizes);
+      if (size) sizes.push(size);
     }
   }
+  return sizes;
 };
