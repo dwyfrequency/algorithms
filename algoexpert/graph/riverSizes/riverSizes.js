@@ -1,5 +1,7 @@
 // eslint-disable-next-line complexity
 const getNeighbors = (row, col, arr) => {
+  // get all the nodes with 1s and return it in an arr
+  // for further exploration
   const retArr = [];
   // UP
   if (row > 0 && arr[row - 1][col]) retArr.push([row - 1, col]);
@@ -12,7 +14,7 @@ const getNeighbors = (row, col, arr) => {
   return retArr;
 };
 
-const exploreNode = (rowIdx, colIdx, visitedArr, sizes, arr) => {
+const exploreNode = (rowIdx, colIdx, visitedArr, arr) => {
   // DFS
   const stack = [[rowIdx, colIdx]];
   let riverSize = 0;
@@ -30,15 +32,20 @@ const exploreNode = (rowIdx, colIdx, visitedArr, sizes, arr) => {
   return riverSize;
 };
 // [[]] => []
+// Time O(w*h) | Space O(w*h)
 const riverSizes = arr => {
+  // create matrix saying whether the node has been visited before
   const visitedArr = arr.map(innerArr => innerArr.map(_ => false));
   const sizes = [];
   for (let row = 0; row < arr.length; row++) {
     for (let col = 0; col < arr[0].length; col++) {
       if (visitedArr[row][col]) continue;
-      const size = exploreNode(row, col, visitedArr, sizes);
+      // each nonvisited node, explore it
+      const size = exploreNode(row, col, visitedArr, arr);
       if (size) sizes.push(size);
     }
   }
   return sizes;
 };
+
+console.log(riverSizes([[1, 0], [0, 1]]));
