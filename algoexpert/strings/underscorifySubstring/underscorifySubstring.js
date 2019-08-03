@@ -10,9 +10,11 @@
  * 4. if so modify both
  *   */
 
-const checkOverLapping = (startIdx, substring) => {
-  const curSub = string.slice(leftPnt, leftPnt + subLen);
-  const rightPntNonInclusive = leftPnt + subLen;
+const checkOverLapping = (startIdx, substring, string) => {
+  const subLen = substring.length;
+  const curSub = string.slice(startIdx, startIdx + subLen);
+  const rightPntNonInclusive = startIdx + subLen;
+  return string.slice(startIdx, rightPntNonInclusive);
 };
 
 function underscorifySubstring(string, substring) {
@@ -20,12 +22,20 @@ function underscorifySubstring(string, substring) {
   let leftPnt = 0;
   const subLen = substring.length;
   const strLen = string.length;
+  let finalStr = '';
   while (leftPnt <= strLen - subLen) {
-    // 'aba' : 3, 'ab' : 2
+    // 'aba' : len(3), 'ab' : len(2)
     const curSub = string.slice(leftPnt, leftPnt + subLen);
-    const rightPntNonInclusive = leftPnt + subLen;
+    let rightPntNonInclusive = leftPnt + subLen; // ie it is one ch/idx past
     if (curSub === substring) {
-      checkOverLapping(rightPntNonInclusive - 1, substring);
+      // by - 1, we make it inclusive
+      while (
+        checkOverLapping(rightPntNonInclusive - 1, substring, string) ===
+        substring
+      ) {
+        rightPntNonInclusive = (rightPntNonInclusive - 1) * 2;
+      }
+      // finalStr += `_${string.slice(leftPnt, rightPntNonInclusive - )}_`;
     }
   }
 }
