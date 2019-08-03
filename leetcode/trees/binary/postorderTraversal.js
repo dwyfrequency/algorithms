@@ -16,3 +16,16 @@ var postorderTraversal = function(root, arr = []) {
   arr.push(root.val);
   return arr;
 };
+
+const postOrderIterative = root => {
+  if (!root) return root;
+  const curStack = [root];
+  const finalStack = [];
+  while (curStack.length) {
+    const curNode = curStack.pop();
+    if (curNode.left) curStack.push(curNode.left);
+    if (curNode.right) curStack.push(curNode.right);
+    finalStack.push(curNode);
+  }
+  while (finalStack.length) console.log(finalStack.pop());
+};
