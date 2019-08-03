@@ -34,3 +34,14 @@ var inorderTraversalIterative = function(root, arr = []) {
   }
   return arr;
 };
+
+const iterTrav = (root, callback = console.log) => {
+  if (!root) return root;
+  const stack = [root];
+  while (stack.length) {
+    const curNode = stack.pop();
+    callback(curNode);
+    if (curNode.right) stack.push(curNode.right);
+    if (curNode.left) stack.push(curNode.left);
+  }
+};
