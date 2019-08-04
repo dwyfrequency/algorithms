@@ -13,7 +13,6 @@ function bracketMatch(text) {
   return Math.abs(openingStack.length - closingStack.length)
 }*/
 // Time O(n) | Space O(n)
-
 function bracketMatch(text) {
   // your code goes here
   const openingStack = [];
