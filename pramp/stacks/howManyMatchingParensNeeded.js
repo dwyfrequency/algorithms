@@ -26,18 +26,21 @@ function bracketMatch(text) {
   return openingStack.length + mismatchCnt;
 }
 
-// Time O(n) | Space O(n)
+// Time O(n) | Space O(1)
 function bracketBetterSpace(text) {
   // your code goes here
-  let delta = 0;
-  let mismatchCnt = 0;
+  let delta = 0; // tracks total delta for open/closed
+  let mismatchCnt = 0; // tracks where the order is incorrect
   let opening = '(';
   for (const ch of text) {
-    if (ch === opening) delta += 1;
-    else if (mismatchCnt < 0) {
+    if (ch === opening) {
+      delta += 1;
+    } else if (mismatchCnt < 0) {
       mismatchCnt += 1;
       delta -= 1;
-    } else delta -= 1;
+    } else {
+      delta -= 1;
+    }
   }
   return delta + mismatchCnt;
 }
