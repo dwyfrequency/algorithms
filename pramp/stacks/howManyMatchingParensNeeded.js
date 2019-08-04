@@ -20,12 +20,26 @@ function bracketMatch(text) {
   let mismatchCnt = 0;
   for (const ch of text) {
     if (ch === opening) openingStack.push(ch);
-    else {
-      if (openingStack.length) openingStack.pop();
-      else mismatchCnt += 1;
-    }
+    else if (openingStack.length) openingStack.pop();
+    else mismatchCnt += 1;
   }
   return openingStack.length + mismatchCnt;
+}
+
+// Time O(n) | Space O(n)
+function bracketBetterSpace(text) {
+  // your code goes here
+  let delta = 0;
+  let mismatchCnt = 0;
+  let opening = '(';
+  for (const ch of text) {
+    if (ch === opening) delta += 1;
+    else if (mismatchCnt < 0) {
+      mismatchCnt += 1;
+      delta -= 1;
+    } else delta -= 1;
+  }
+  return delta + mismatchCnt;
 }
 
 /*
