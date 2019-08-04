@@ -9,7 +9,8 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isMirror = function(leftNode, rightNode) {
+// Time O(n) | Space O(n)
+var isMirrorRecursive = function(leftNode, rightNode) {
   if (!leftNode && !rightNode) return true;
   if (!leftNode || !rightNode || leftNode.val !== rightNode.val) return false;
   return (
