@@ -1,5 +1,6 @@
 // Time O(n) | Space O(n)
 /*
+first attempt - when i didnt know order mattered
 function bracketMatch(text) {
   // your code goes here
   const openingStack = []
@@ -11,6 +12,8 @@ function bracketMatch(text) {
   }
   return Math.abs(openingStack.length - closingStack.length)
 }*/
+// Time O(n) | Space O(n)
+
 function bracketMatch(text) {
   // your code goes here
   const openingStack = [];
@@ -43,6 +46,6 @@ EXAMPLES:
 ) => 1
 
 Failing
-"())(" => 2
-")(" => 2
+"())(" => 2 order matters
+")(" => 2  order matters
 */
