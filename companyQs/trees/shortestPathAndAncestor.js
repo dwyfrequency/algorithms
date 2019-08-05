@@ -16,6 +16,7 @@ we iterate through using bfs, and mutate the obj adding an ancestor prop
 then once we hit the search val, we build a return array of our ancestors
 */
 
+// Time O(v + e) | Space O(v)
 function getShortestPath(root, lookupVal) {
   root.ancestor = null;
   const queue = [root];
@@ -33,7 +34,7 @@ function getShortestPath(root, lookupVal) {
   }
   return []; // if not found return blank array
 }
-
+// Time O(depth)
 function createPath(node) {
   const returnArr = [];
   while (node) {
