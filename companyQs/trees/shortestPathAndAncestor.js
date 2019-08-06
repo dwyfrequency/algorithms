@@ -43,3 +43,8 @@ function createPath(node) {
   }
   return returnArr;
 }
+
+function getFirstCommonAncestor(root, val1, val2) {
+  const ancestorArr1 = getShortestPath(root, val1);
+  const ancestorArr2 = getShortestPath(root, val2);
+}
