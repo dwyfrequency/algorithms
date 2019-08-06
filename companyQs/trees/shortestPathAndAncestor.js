@@ -47,4 +47,13 @@ function createPath(node) {
 function getFirstCommonAncestor(root, val1, val2) {
   const ancestorArr1 = getShortestPath(root, val1);
   const ancestorArr2 = getShortestPath(root, val2);
+  while (ancestorArr1.length !== ancestorArr2.length) {
+    if (ancestorArr1.length > ancestorArr2.length) ancestorArr1.pop();
+    else ancestorArr1.pop();
+  }
+  for (let i = ancestorArr1.length - 1; i >= 0; i--) {
+    if (ancestorArr1[i] === ancestorArr2[i]) {
+      return ancestorArr2[i];
+    }
+  }
 }
