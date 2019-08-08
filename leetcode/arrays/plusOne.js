@@ -18,3 +18,17 @@ var plusOne = function(arr) {
   if (carry) arr.unshift(carry);
   return arr;
 };
+
+const plusOneV2 = function(arr) {
+  // iterate until we have a idxval less than 9
+  // increment then return
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] < 9) {
+      arr[i]++;
+      return arr;
+    }
+    arr[i] = 0;
+  }
+  // we use this in the scenario when it's all 9s
+  return [1, ...arr];
+};
