@@ -2,6 +2,7 @@
  * @param {number[]} prices
  * @return {number}
  */
+// Time O(N) | Space O(1)
 // arr -> int
 var maxProfit = function(prices) {
   let total = 0;
