@@ -10,4 +10,12 @@
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {};
+var removeNthFromEnd = function(head, n) {
+  let leftMostPnt = head;
+  let leadPnt = head;
+  let cnt = 1;
+  while (cnt < n) {
+    cnt++;
+    leadPnt = leadPnt.next;
+  }
+};
