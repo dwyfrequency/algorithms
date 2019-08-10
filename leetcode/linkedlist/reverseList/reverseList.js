@@ -48,6 +48,20 @@ var reverseList = function(head) {
   return curNode;
 };
 
+const revListImproved = head => {
+  if (!head || !head.next) return head;
+  let prev = null;
+  while (head) {
+    const next = head.next;
+    head.next = prev;
+    prev = head;
+    head = next;
+  }
+  // return prev b/c once we're out of while, head is null and prev is the actual
+  // head
+  return prev;
+};
+
 const l1 = new ListNode(1);
 const l2 = new ListNode(2);
 const l3 = new ListNode(3);
