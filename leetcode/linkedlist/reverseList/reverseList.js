@@ -20,6 +20,13 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+class ListNode {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
 var reverseList = function(head) {
   if (!head || !head.next) return head;
   let prevNode = null,
@@ -33,3 +40,5 @@ var reverseList = function(head) {
   }
   return curNode;
 };
+
+module.exports = { reverseList, ListNode };
