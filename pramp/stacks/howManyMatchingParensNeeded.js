@@ -1,16 +1,19 @@
 // Time O(n) | Space O(1)
 function bracketMatchO1(text) {
   const opening = '(';
-  let diffCounter = 0;
-  let mismatchCnt = 0;
+  let diffCounter = 0, // counts if we have extra opening
+    mismatchCnt = 0; // counts if we have extra closing braces
   for (const ch of text) {
     if (ch === opening) diffCounter++;
     else diffCounter--;
+
     if (diffCounter < 0) {
+      // if we are too heavy on closing braces
       diffCounter++;
       mismatchCnt++;
     }
   }
+  // add diff and mismatch together to get total
   return diffCounter + mismatchCnt;
 }
 
