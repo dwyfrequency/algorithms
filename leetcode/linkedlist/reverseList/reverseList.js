@@ -30,14 +30,20 @@ class ListNode {
 var reverseList = function(head) {
   if (!head || !head.next) return head;
   let prevNode = null,
-    curNode = head,
-    nextNode = curNode.next;
-  while (nextNode) {
+    curNode = head;
+  // iterate until the tail
+  while (curNode.next) {
+    // take next val in list
+    let nextNode = curNode.next;
+    // assign currentNode the prevNode as next
     curNode.next = prevNode;
+    // make the prevNode the curNode
     prevNode = curNode;
+    // make curNode the nextNode
     curNode = nextNode;
     nextNode = nextNode.next;
   }
+  // once we've found the tail, point the head at the prevNode
   curNode.next = prevNode;
   return curNode;
 };
