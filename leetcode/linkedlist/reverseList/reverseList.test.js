@@ -25,9 +25,9 @@ describe('testing reverseList func', () => {
     L4.next = L3;
     L3.next = L2;
     L2.next = L1;
-    linkedList = L1;
+    revList = L5;
   });
   test('should reverse list', () => {
-    revList.next = console.log(linkedList);
+    expect(reverseList(linkedList)).toEqual(revList);
   });
 });
