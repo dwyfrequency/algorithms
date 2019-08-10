@@ -31,6 +31,5 @@ var reverseList = function(head) {
     curNode = nextNode;
     nextNode = nextNode.next;
   }
-  console.log({ curNode });
   return curNode;
 };
