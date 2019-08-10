@@ -25,17 +25,15 @@ var solution = function(isBadVersion) {
     let middle = 2;
     let leftMost = 0;
     let rightMost = n;
-    while (true) {
+    while (!(!isBadVersion(middle - 1) && isBadVersion(middle))) {
       middle = Math.floor((leftMost + rightMost) / 2);
       if (!isBadVersion(middle)) {
         leftMost = middle + 1;
-        continue;
-      } else if (!isBadVersion(middle - 1) && isBadVersion(middle)) {
-        return middle;
       } else {
         rightMost = middle - 1;
       }
     }
+    return middle;
   };
 };
 
