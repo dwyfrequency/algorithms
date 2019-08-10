@@ -38,3 +38,21 @@ var solution = function(isBadVersion) {
     }
   };
 };
+
+function solutionV2(isBadVersion) {
+  return function(n) {
+    let left = 0;
+    let right = n;
+
+    while (right - left !== 1) {
+      const mid = Math.floor((left + right) / 2);
+
+      if (isBadVersion(mid)) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+    }
+    return right;
+  };
+}
