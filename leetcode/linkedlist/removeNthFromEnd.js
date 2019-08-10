@@ -35,3 +35,19 @@ var removeNthFromEnd = function(head, n) {
   leftMostPnt.next = leftMostPnt.next.next;
   return head;
 };
+
+// Time O(n) | Space O(1)
+var removeNthFromEndSimpler = function(head, n) {
+  let leftMostPnt = head;
+  let leadPnt = head;
+  for (let i = 0; i < n; i++) leadPnt = leadPnt.next;
+  // if they are asking us to remove the head
+  if (leadPnt === null) return head.next;
+  // iterate until the tail
+  while (leadPnt.next !== null) {
+    leadPnt = leadPnt.next;
+    leftMostPnt = leftMostPnt.next;
+  }
+  leftMostPnt.next = leftMostPnt.next.next;
+  return head;
+};
