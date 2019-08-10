@@ -1,17 +1,19 @@
-// Time O(n) | Space O(n)
-/*
-first attempt - when i didnt know order mattered
-function bracketMatch(text) {
-  // your code goes here
-  const openingStack = []
-  const closingStack = []
-  let opening = '('
-  for(const ch of text) {
-    if(ch === opening) openingStack.push(ch)
-    else closingStack.push(ch)
+// Time O(n) | Space O(1)
+function bracketMatchO1(text) {
+  const opening = '(';
+  let diffCounter = 0;
+  let mismatchCnt = 0;
+  for (const ch of text) {
+    if (ch === opening) diffCounter++;
+    else diffCounter--;
+    if (diffCounter < 0) {
+      diffCounter++;
+      mismatchCnt++;
+    }
   }
-  return Math.abs(openingStack.length - closingStack.length)
-}*/
+  return diffCounter + mismatchCnt;
+}
+
 // Time O(n) | Space O(n)
 function bracketMatch(text) {
   // your code goes here
