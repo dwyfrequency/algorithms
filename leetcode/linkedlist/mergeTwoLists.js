@@ -22,12 +22,14 @@ var mergeTwoLists = function(l1, l2) {
   let curNode = head;
   while (l1 && l2) {
     if (l1.val < l2.val) {
-      curNode = new ListNode(l1.val);
+      // add new node
+      curNode.next = new ListNode(l1.val);
       l1 = l1.next;
     } else {
-      curNode = new ListNode(l2.val);
+      curNode.next = new ListNode(l2.val);
       l2 = l2.next;
     }
+    // make current node the newly added node
     curNode = curNode.next;
   }
   curNode.next = l1 || l2;
