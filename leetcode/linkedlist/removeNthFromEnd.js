@@ -10,6 +10,7 @@
  * @param {number} n
  * @return {ListNode}
  */
+// Time O(n) | Space O(1)
 var removeNthFromEnd = function(head, n) {
   let leftMostPnt = head;
   let leadPnt = head;
