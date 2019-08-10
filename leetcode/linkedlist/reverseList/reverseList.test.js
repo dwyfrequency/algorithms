@@ -2,6 +2,7 @@ const { reverseList, ListNode } = require('./reverseList');
 
 describe('testing reverseList func', () => {
   let linkedList;
+  let revList;
   beforeEach(() => {
     const l1 = new ListNode(1);
     const l2 = new ListNode(2);
@@ -13,8 +14,20 @@ describe('testing reverseList func', () => {
     l3.next = l4;
     l4.next = l5;
     linkedList = l1;
+
+    const L1 = new ListNode(1);
+    const L2 = new ListNode(2);
+    const L3 = new ListNode(3);
+    const L4 = new ListNode(4);
+    const L5 = new ListNode(5);
+    revList = L5;
+    L5.next = L4;
+    L4.next = L3;
+    L3.next = L2;
+    L2.next = L1;
+    linkedList = L1;
   });
-  test('should ', () => {
-    console.log(linkedList);
+  test('should reverse list', () => {
+    revList.next = console.log(linkedList);
   });
 });
