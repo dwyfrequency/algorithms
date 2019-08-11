@@ -29,40 +29,35 @@ Key2.a = '2'
 }
 
 */
-
+const getKeyName = (key, parentKeys = []) => {
+  let returnStr = key;
+  if (parentKeys.length) {
+    if (key) returnStr = `${parentKeys.join('.')}.${key}`;
+    else returnStr = `${parentKeys.join('.')}`;
+  }
+  return returnStr;
+};
 
 // {} -> {}
 // Time O(n) | Space O(n)
 function flattenDictionary(dict, returnDict = {}, parentKey = []) {
   // your code goes here
-  for(const key in dict) {
-      if(dict.hasOwnProperty(key)) {
-        //
-        if(typeof dict[key] !== 'object') {
-        if(parentKey.length) {
-          if(key) returnDict[`${parentKey.join('.')}.${key}`] = dict[key]
-          else returnDict[`${parentKey.join('.')}`] = dict[key]
-
-        else returnDict[key] = dict[key]
+  // eslint-disable-next-line guard-for-in
+  for (const key in dict) {
+    if (dict.hasOwnProperty(key)) {
+      if (typeof dict[key] !== 'object') {
+        returnDict[getKeyName(key, parentKey)] = dict[key];
       } else {
-        flattenDictionary(dict[key], returnDict, key ? parentKey.concat(key) : parentKey)
+        flattenDictionary(
+          dict[key],
+          returnDict,
+          key ? parentKey.concat(key) : parentKey
+        );
       }
     }
   }
-  return returnDict
+  return returnDict;
 }
+const dict = { Key1: '1', Key2: { a: '2', b: '3', c: { d: '3', e: '1' } } };
 
-
-console.log(flattenDictionary( {
-            "Key1" : "1",
-            "Key2" : {
-                "a" : "2",
-                "b" : "3",
-                "c" : {
-                    "d" : "3",
-                    "e" : {
-                        "" : "1"
-                    }
-                }
-            }
-        }))
+console.log(flattenDictionary(dict));
