@@ -33,7 +33,9 @@ function findBusiestPeriod(data) {
     const [timestamp, visitorCnt, isInMall] = data[i];
     if (isInMall) currentVisitorCnt += visitorCnt;
     else currentVisitorCnt -= visitorCnt;
-    // const blem = data[i + 1][0];
+    // if i is not the last row AND the next timestamp equals curTime skip it
+    // b/c we only want to count at the end of the timeperiod
+    // we do len - 1 so we don't skip the last row if there is no change between timestamps
     if (i < data.length - 1 && timestamp === data[i + 1][0]) continue;
     if (currentVisitorCnt > maxVisitorCnt) {
       maxVisitorCnt = currentVisitorCnt;
