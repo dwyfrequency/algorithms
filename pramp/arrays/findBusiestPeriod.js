@@ -26,28 +26,30 @@ failed
 // Time O(n) | Space O(1)
 function findBusiestPeriod(data) {
   // your code goes here
-  let lastTimeStamp = 0;
-  let maxVisitorTimeStamp = 0;
+  let maxVisitorTimeStamp = -Infinity;
   let maxVisitorCnt = -Infinity;
   let currentVisitorCnt = 0;
-  for (const [timestamp, visitorCnt, isInMall] of data) {
+  for (let i = 0; i < data.length; i++) {
+    const [timestamp, visitorCnt, isInMall] = data[i];
     if (isInMall) currentVisitorCnt += visitorCnt;
     else currentVisitorCnt -= visitorCnt;
-    if (timestamp !== lastTimeStamp) {
-      if (currentVisitorCnt > maxVisitorCnt) {
-        maxVisitorCnt = currentVisitorCnt;
-        maxVisitorTimeStamp = lastTimeStamp;
-        lastTimeStamp = timestamp;
-      }
+    // const blem = data[i + 1][0];
+    if (i < data.length - 1 && timestamp === data[i + 1][0]) continue;
+    if (currentVisitorCnt > maxVisitorCnt) {
+      maxVisitorCnt = currentVisitorCnt;
+      maxVisitorTimeStamp = timestamp;
     }
-  }
-  if (currentVisitorCnt > maxVisitorCnt) {
-    console.log('outside loop');
-    maxVisitorCnt = currentVisitorCnt;
-    maxVisitorTimeStamp = lastTimeStamp;
   }
   return maxVisitorTimeStamp;
 }
+
+console.log(
+  findBusiestPeriod([
+    [1487799425, 21, 0],
+    [1487799427, 22, 1],
+    [1487901318, 7, 0],
+  ])
+); // 1487801478
 
 function findBusiestPeriodV2(data) {
   let n = data.length;
