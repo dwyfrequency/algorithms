@@ -23,3 +23,5 @@ describe('scheduler', () => {
     expect(scheduler(agent, client)).toEqual([[2, 3], [7, 10], [21, 22]]);
   });
 });
+
+// npm test companyQs/arrays/schedulerIntersection/scheduler.test.js
