@@ -26,3 +26,17 @@ const scheduler = (agent, client) => {
     else clientPnt++;
   }
 };
+
+/*
+Explanation:
+We take the max start time and min end.
+maxStart because anything before the maxStart is not an intersection
+same with minEnd anything after the min end time does not have an overlap
+at least for those two sub arrays
+
+if maxStart < minEnd -> we have an overlap and can add it to our array
+
+to decide what pnt to increment we need to see what has the minEnd time
+as the arrays are sorted, we know that an overlap can only exist in an array
+with a later start time so we increment the pnt of the array w/ the min start
+*/
