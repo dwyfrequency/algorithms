@@ -10,7 +10,7 @@ customer [[2, 3], [7,10], [21, 23]]
 -> [[2,3], [7,10], [21,23]]
 
 */
-// Time O(n + m) | Space O(m)
+// Time O(n + m) | Space O(m) -> whichever is the longer array
 // ([arr], [arr]) -> [arr]
 const scheduler = (agent, client) => {
   let agentPnt = 0,
