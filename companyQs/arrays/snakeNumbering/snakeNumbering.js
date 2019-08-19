@@ -1,8 +1,7 @@
 // Time O(n*m) | Space O(n*m)
 const snakeNumbering = (row, col) => {
-  if (row === 0 || col === 0) {
-    return Array.from({ length: row || col }, (_, idx) => idx + 1);
-  }
+  if (row === 0 || col === 0) return [];
+
   const returnArr = Array.from({ length: row }, () =>
     Array.from({ length: col })
   );
