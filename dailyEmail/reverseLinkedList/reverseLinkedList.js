@@ -5,6 +5,7 @@ class ListNode {
   }
 }
 
+// Time O(n) | Space O(1)
 const reverseLinkedList = node => {
   if (!node || !node.next) return node;
   let curNode = node;
