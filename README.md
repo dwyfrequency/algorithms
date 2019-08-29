@@ -66,3 +66,5 @@ Tail call optimization (TCO): where the compiler can optimize some recursive fun
   return (n > 1) ? (n * product1ToN(n-1)) : 1;
 }
 ```
+
+## Dynamic Programming 
