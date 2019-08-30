@@ -68,3 +68,6 @@ Tail call optimization (TCO): where the compiler can optimize some recursive fun
 ```
 
 ## Dynamic Programming 
+
+Need to add to this
+- do the square problem
